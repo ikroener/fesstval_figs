@@ -1,0 +1,504 @@
+body
+{
+    padding-top: 0px;
+    background-color: #fff;
+    background-image: url('../img/dom_16x16_diagonale_stroke_2_white_trans.png');
+    background-repeat: repeat;
+    
+}
+
+@media (min-width: 768px) {
+   #carousel {
+      padding-left:0px !important;
+      padding-right:0px !important;
+      margin-left:-15px !important;
+    }
+}
+.starter-template
+{
+    padding: 40px 15px;
+    
+    text-align: center;
+}
+
+.page
+{
+  background-color:#fff;
+  min-height:700px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 30px 30px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+#main_content
+{
+
+  padding: 10px 60px 20px 20px;
+
+}
+  
+.logo
+{
+  padding:20px 0 20px 20px;
+}
+.logo img {
+
+height: auto;
+max-width: 100%;
+display: block;
+}
+.nav
+{
+  font-size: 18px;
+  
+}
+.nav a
+{
+  color:#777;
+}
+
+/*--breadcrumb --*/
+
+.breadcrumb
+{
+  font-size:0.7em;
+  margin-bottom:0pt;
+  background-color:transparent;
+}
+
+#toolbox .homebutton,#toolbox #langmenu,#toolbox .searchbox,#toolbox .langmenu
+{
+    float: left;
+    margin-left: 2px;
+}
+#toolbox {
+  float:right;
+}
+
+.clearer {
+  clear:both}
+/*--Searchbox--*/
+
+#mainnavbar .homebutton
+{
+  float:left;
+  margin-right:5px
+}
+#mainnavbar .searchbox
+{
+  float:left;
+  margin-right:5px;
+ }
+
+#mainnavbar .searchbox .dropdown-menu
+{
+  min-width:100%;
+  top:unset;
+ }
+#mainnavbar .langmenu
+{
+ 
+}
+/*--Carrousel--*/
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+}
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 500px;
+  width:100%;
+ ;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+.carousel-caption {
+   
+    text-shadow: 0 1px 2px rgba(0,0,0,1);
+}
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  width:100%;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+
+@media screen and (max-width: 767px) {
+
+
+
+
+/* Carousel base class */
+.carousel {
+  height: 200px;
+ 
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 200px;
+ 
+}
+.carousel-inner > .item > img {
+  height: 200px;
+}
+
+
+
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+   .koning-bootstrap-carousel  {
+  
+     margin-left: -20px;
+     margin-right: -60px;
+     
+}
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
+
+/*--sponsor block--**/
+#sponsor
+{
+  padding:40px 15px 40px 15px;
+  text-align: center;
+}
+#sponsor img
+{
+    float:left;
+    margin:20px;
+    align:center;
+}
+
+
+/**--------Sponsorbox -----**/
+#sponsor .csc-textpic {
+  width:100%;
+ }
+
+/**---------Letnav-------**/
+#leftnav .rootline {
+  background-color: #55aadd;
+  font-size:1.6em;
+  color:#fff;
+  list-style-type:none;
+  
+}
+
+#leftnav ul {
+   list-style-type: none;
+}
+
+/**--------CONTENT-----------**/
+.whitebackground_underline {
+background-color: #fff;
+border-bottom: 1px solid #333;
+margin-top:10px;
+margin-bottom:20px;
+}
+.bise_blue{
+background-color: #55aadd;
+color: #fff;
+margin-top:0px;
+margin-bottom:20px;
+padding: 10px 10px 20px 10px;
+
+}
+
+/**--------Offcanvas----------**/
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+body {
+  padding-top: 0px;
+}
+footer {
+  padding: 30px 0;
+}
+
+
+ .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+.navbar-toggle {
+  float:none;
+  margin-left:16px;
+}
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+}
+
+legend {font-size:14px}
+
+ td,th {
+  padding:0.7em
+       
+}
+
+td {
+      vertical-align: top;
+  }
+
+.news .article .teaser-text {
+  min-height:150px;
+}
+
+.news-img-wrap a {
+  border:0px !important;
+}
+
+
+.news .article .header h3 {
+ # font-weight:200;
+}
+
+TABLE.contenttable{border-top:2px #ccc solid;border-left:2px #ccc solid;border-right:5px #ccc solid;border-bottom:5px #ccc solid;background-color:#fff}
+
+table.contenttable td{border-bottom:1px #ccc solid;border-right:1px #ccc solid;background-color:#fff;}
+
+
+/* Tables, specifically */
+TABLE.contenttable-0 P { color: #000000; }
+
+TABLE.contenttable-1 P { color: #186900; }
+TABLE.contenttable-1 TR.tr-0 TD P { font-weight: bold; }
+TABLE.contenttable-1 TR.tr-0 TD { background-color: #D1D2E4;}
+ 
+TABLE.contenttable-2 P { color: #10007B; }
+TABLE.contenttable-2 TR TD.td-0 { background-color: #F5FFAA;}
+TABLE.contenttable-2 TR TD.td-0 P { font-weight: bold; }
+
+TABLE.contenttable-3 P {  }
+TABLE.contenttable-3 TR TD.td-0, TABLE.contenttable-3 TR.tr-0 TD {background-color:#228877;color:#fff;font-weight: bold;text-align:center;}
+TABLE.contenttable-3 TR TD.td-0 a {color:#fff;padding:0.2em;}
+TABLE.contenttable-3 TR TD.td-0 a:hover {color:#228877;text-decoration:underline;}
+TABLE.contenttable-3 TR TD.td-last { border-right:0;}
+TABLE.contenttable-3 TR.tr-last td { border-bottom:0;}
+TABLE.contenttable-3 TR TD.td-0 P, TABLE.contenttable-3 TR.tr-0 TD P { font-weight: bold; }
+
+
+table.contenttable{border-top:2px #ccc solid;border-left:2px #ccc solid;border-right:5px #ccc solid;border-bottom:5px #ccc solid;background-color:#fff}
+
+table.contenttable td{border-bottom:1px #ccc solid;border-right:1px #ccc solid;background-color:#fff;}
+
+
+/* Tables, specifically */
+table.contenttable-0 p { color: #ff0000; }
+
+table.contenttable-1 { color: #186900; }
+table.contenttable-1 tbody tr:first-child td  { font-weight: bold; }
+table.contenttable-1 tbody tr:first-child td { background-color: #D1D2E4;}
+ 
+table.contenttable-2 p { color: #10007B; }
+table.contenttable-2 tbody tr td:first-child { background-color: #F5FFAA;}
+table.contenttable-2 tbody tr td:first-child  { font-weight: bold; }
+
+table.contenttable-3 p {  }
+table.contenttable-3 thead tr th,table.contenttable-3 tbody tr td:first-child  {background-color:#228877;color:#fff;font-weight: bold;text-align:center;}
+table.contenttable-3 thead tr th  a {color:#fff;padding:0.2em;}
+table.contenttable-3 tbody tr td:first-child  a:hover {color:#228877;text-decoration:underline;}
+table.contenttable-3 tbody tr td:last-child  { border-right:0;}
+table.contenttable-3 tbody tr:last-child  td { border-bottom:0;}
+table.contenttable-3 tbody tr td:first-child  p, table.contenttable-3 thead { font-weight: bold; }
+
+
+
+/* Tables, specifically */
+table.contenttable-0 { color: #ff0000; }
+
+table.contenttable-1 { color: #186900; }
+table.contenttable-1 tbody tr:first-child td  { font-weight: bold; }
+table.contenttable-1 thead tr th { background-color: #D1D2E4;}
+ 
+table.contenttable-2 { color: #10007B; }
+table.contenttable-2 tbody tr td:first-child { background-color: #F5FFAA;}
+table.contenttable-2 tbody tr td:first-child  { font-weight: bold; }
+
+table.contenttable-3 p {  }
+table.contenttable-3 thead tr th,table.contenttable-3 tbody tr td:first-child  {background-color:#228877;color:#fff;font-weight: bold;text-align:center;}
+table.contenttable-3 thead tr th  a {color:#fff;padding:0.2em;}
+table.contenttable-3 tbody tr td:first-child  a:hover {color:#228877;text-decoration:underline;}
+table.contenttable-3 tbody tr td:last-child  { border-right:0;}
+table.contenttable-3 tbody tr:last-child  td { border-bottom:0;}
+table.contenttable-3 tbody tr td:first-child  p, table.contenttable-3 thead { font-weight: bold; }
+
+
+table.atmos  {  }
+table.atmos thead tr th,table.contenttable-3 tbody tr td:first-child  {background-color:#09c;color:#fff;font-weight: bold;text-align:center;}
+table.atmos thead tr th  a {color:#fff;padding:0.2em;}
+
+table.ocean  {  }
+table.ocean thead tr th,table.contenttable-3 tbody tr td:first-child  {background-color:#026;color:#fff;font-weight: bold;text-align:center;}
+table.ocean thead tr th  a {color:#fff;padding:0.2em;}
+
+table.earth  {  }
+table.earth thead tr th,table.contenttable-3 tbody tr td:first-child  {background-color:#363;color:#fff;font-weight: bold;text-align:center;}
+table.earth thead tr th  a {color:#fff;padding:0.2em;}
+
+
+.contentclear {
+
+    clear: both;
+
+}
+
+
