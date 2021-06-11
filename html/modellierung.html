@@ -271,8 +271,8 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
             var basedir = 'https://raw.githubusercontent.com/ikroener/fesstval_figs/main/';
             //var date = $('#seldate').value();
             var date = $("#seldate").val().replace("-","").replace("-","")
-            var variables = ['#T','#rh','#ws','#clc']
-            var varnames = ['temperature','relative_humidity','wind_speed','cloud_cover']
+            var variables = ['#T','#rh','#ws','#clc','#skewt']
+            var varnames = ['temperature','relative_humidity','wind_speed','cloud_cover','skewt_12']
             var ids = ['_img_obs','_img_scm','_img_mod1','_img_mod2','_img_crm','_img_lem']; // '_img_scm2'
             var names = ['obs','SCM_D2','ICON_GLOBAL','ICON_D2','CRM_D2','LEM_D2']; // SCM2
             $.each(variables,function(jndex,jalue) {
@@ -308,8 +308,35 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
             
         });
     });
-    
 </script>
+
+<script>
+    $(document).ready(function() {
+        $("#selskewt").click(function() {
+            var basedir = 'https://raw.githubusercontent.com/ikroener/fesstval_figs/main/';
+            //var date = $('#seldate').value();
+            var date = $("#seldate").val().replace("-","").replace("-","")
+            var variables = ['#skewt']
+            var varnames = ['skewt']
+            var ids = ['_img_obs','_img_scm','_img_mod1','_img_mod2','_img_crm','_img_lem']; // '_img_scm2'
+            var names = ['obs','SCM_D2','ICON_GLOBAL','ICON_D2','CRM_D2','LEM_D2']; // SCM2
+            var key = $("#seltime").val()
+            $.each(variables,function(jndex,jalue) {
+            $.each(ids,function(index, value) {
+                var i = (index) % 6
+                var modvalue = jalue+value
+                if ( date ) {
+                    $(modvalue).attr('src',basedir+'/archive/'+ date +'/falkenberg-'+varnames[jndex]+'_'+ key +'-'+names[i]+'-' + date +'.png');
+                    } else {
+                        $(modvalue).attr('src',basedir+'/today/'+ date +'/'+varnames[jndex]+'_'+ key +'-'+names[i]+'-' + 'today.png');
+                    }
+            })
+            })
+        });
+    });
+</script>
+
+
 
 <div>Liste der Variablen: </div>
 <a href="#temperature">Temperatur</a> -- <a href="#relative_humidity">Relative Feuchtigkeit</a> -- <a href="#wind_speed">Windgeschwindigkeit</a> -- <a href="#wind_direction">Windrichtung</a> -- <a href="#msl_press">MSLP</a> -- <a href="#tke">TKE</a> --  <a href="#hf">Wärmeflüsse</a>
@@ -488,6 +515,68 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
 <tr style="border-bottom:1px solid black">
   <td colspan="100%"><p class="pull-right"><a href="#">Back to top</a></p>   </td>
 </tr>
+
+
+
+<tr><td colspan="2" align="left" valign="left" id="skewt"> <h2>SkewT</h2> </td></tr>
+<tr><td>
+        <select id="seltime" name="12">
+          <option value="00">00 UTC</option>
+          <option value="06">06 UTC</option>
+          <option value="12">12 UTC</option>
+          <option value="18">18 UTC</option>
+        </select><button id="selskewt">Auswahl</button>
+</td>
+</tr>
+<tr>
+    <td> <h4>realistisch:</h4> </td>
+</tr>
+<tr>
+<td align="left">
+    Beobachtung: <br>
+    <a href="skewt-obs-today.png" onclick="openPic('skew_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="skewt_img_obs">
+   <img id="skewt_img_obs" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/skewt_12-obs-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-D2: <br>
+   <a href="skewt-ICON_D2-today.png" onclick="openPic('skewt_img_mod2','width=600,height=450,status=0,menubar=0'); return false;" target="skewt_img_mod2">
+   <img id="skewt_img_mod2" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/skewt_12-ICON_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-Global: <br>
+   <a href="skwet-ICON_GLOBAL-today.png" onclick="openPic('skewt_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="skewt_img_mod1">
+   <img id="skewt_img_mod1" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/skewt_12-ICON_GLOBAL-today.png"
+           width="100%" alt="" /></a>
+</td>
+</tr>
+<tr>
+    <td> <h4>halb-idealistisch:</h4> </td>
+</tr>
+<tr>
+<td align="left">
+    ICON-SCM: <br>
+    <a href="skewt-SCM_D2-today.png" onclick="openPic('T_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="skewt_img_scm"><img id="skewt_img_scm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/skewt_12-SCM_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-CRM-PER: <br>
+    <a href="skewt-CRM_D2-today.png" onclick="openPic('skewt_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="skewt_img_crm"><img id="skewt_img_crm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/skewt_12-CRM_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td  align="left">
+    ICON-LEM-PER : <br>
+    <a href="skewt-LEM_D2-today.png" onclick="openPic('skewt_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="skewt_img_lem"><img id="skewt_img_lem" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/skewt_12-LEM_D2-today.png"
+           width="100%" alt="" /></a>
+</td>
+</tr>
+<tr style="border-bottom:1px dashed black">
+  <td colspan="100%">  </td>
+</tr>
+
 
 
 <tr>
