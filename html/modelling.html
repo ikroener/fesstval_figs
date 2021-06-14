@@ -637,6 +637,60 @@ ICON-D2: NWP physics, activated dynamics, limited area grid with 2.2km horizonta
 ICON-SCM: NWP physics, de-activated dynamics, minimal torus grid (single column) </br>
 ICON-CRM-PER: NWP physics, activated dynamics, periodic torus grid (100x100 cells) with 2.5 km horizontal resolution </br>
 ICON-LEM-PER: LEM physics, activated dynamics, periodic torus grid (100x100 cells) with 100 m horizontal resolution </br>
+
+</br>
+Search within the config files for namelist entries using clear text or the drop down menu (only most recent date at the moment):</br>
+<input type="text" id="namelistkey" list="listkeys"><button id="selkey">Select</button>
+    <datalist id="listkeys">
+        <option value='lcoriolis'>
+        <option value='ldynamics'>
+        <option value='is_geowind'>
+        <option value='nh_test_name'>
+    </datalist>
+
+</br>
+</br>
+ICON-SCM    : <label for="iconscm" id="iconscm"> </label> </br>
+ICON-CRM-PER: <label for="iconcrm" id="iconcrm"> </label> </br>
+ICON-LEM-PER: <label for="iconlem" id="iconlem"> </label> </br>
+<script>
+    $(document).ready(function() {
+        $("#selkey").click(function() {
+            $.ajax({
+                url : "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_SCM_today",
+                dataType: "text",
+                success : function (data) {
+                    const regex1 = (element) => element.includes($("#namelistkey").val())
+                    var dataarray = data.split('\n')
+                    var i = dataarray.findIndex(regex1);
+                    $("#iconscm").html(dataarray[i])
+                }
+            });
+            $.ajax({
+                url : "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_CRM_today",
+                dataType: "text",
+                success : function (data) {
+                    const regex1 = (element) => element.includes($("#namelistkey").val())
+                    var dataarray = data.split('\n')
+                    var i = dataarray.findIndex(regex1);
+                    $("#iconcrm").html(dataarray[i])
+                }
+            });
+            $.ajax({
+                url : "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_LEM_today",
+                dataType: "text",
+                success : function (data) {
+                    const regex1 = (element) => element.includes($("#namelistkey").val())
+                    var dataarray = data.split('\n')
+                    var i = dataarray.findIndex(regex1);
+                    $("#iconlem").html(dataarray[i])
+                }
+            });
+        });
+    });
+</script>
+
+
 </br>
 Observations: </br>
 Observational products are taken from the Falkenberg site of the Meteorologisches Observatorium Lindenberg (MOL). For the vertical profiles (line plots) the operational radiosonde measurements of MOL are used.
