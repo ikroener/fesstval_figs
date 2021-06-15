@@ -305,6 +305,9 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
             })
             })
 
+            $("#iconscm").html("")
+            $("#iconcrm").html("")
+            $("#iconlem").html("")
             
         });
     });
@@ -763,7 +766,7 @@ ICON-SCM: NWP Physik, keine Dynamik, minimales Torus Gitter (single column) </br
 ICON-CRM-PER: NWP Physik, aktivierte Dynamik, periodisches Torus Gitter (100x100) mit 2.5 km horizontaler Auflösung </br>
 ICON-LEM-PER: LEM Physik, aktivierte Dynamik, periodisches Torus Gitter (100x100) mit 100 m horizontaler Auflösung </br>
 </br>
-Suche innerhalb der Konfigurationsdateien mittels Freitext oder Dropdown Menü (derzeit nur für das aktuelle Datum):</br>
+Suche innerhalb der Konfigurationsdateien mittels Freitext oder Dropdown Menü:</br>
 <input type="text" id="namelistkey" list="listkeys"><button id="selkey">Auswahl</button>
     <datalist id="listkeys">
         <option value='lcoriolis'>
@@ -777,11 +780,23 @@ Suche innerhalb der Konfigurationsdateien mittels Freitext oder Dropdown Menü (
 ICON-SCM    : <label for="iconscm" id="iconscm"> </label> </br>
 ICON-CRM-PER: <label for="iconcrm" id="iconcrm"> </label> </br>
 ICON-LEM-PER: <label for="iconlem" id="iconlem"> </label> </br>
+
+
 <script>
-    $(document).ready(function() {
         $("#selkey").click(function() {
+            var date = $("#seldate").val().replace("-","").replace("-","")
+            if ( date ) {
+                var url1 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/archive/"+date+"/NAMELIST_SCM_dt1.0_" + date + "00"
+                var url2 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/archive/"+date+"/NAMELIST_CRM_dt1.0_" + date + "00"
+                var url3 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/archive/"+date+"/NAMELIST_LEM_dt1.0_" + date + "00"
+                } else {
+                var url1 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_SCM_dt1.0_today"
+                var url2 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_CRM_dt1.0_today"
+                var url3 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_LEM_dt1.0_today"
+            }
+            
             $.ajax({
-                url : "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_SCM_today",
+                url : url1,
                 dataType: "text",
                 success : function (data) {
                     const regex1 = (element) => element.includes($("#namelistkey").val())
@@ -791,7 +806,7 @@ ICON-LEM-PER: <label for="iconlem" id="iconlem"> </label> </br>
                 }
             });
             $.ajax({
-                url : "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_CRM_today",
+                url : url2,
                 dataType: "text",
                 success : function (data) {
                     const regex1 = (element) => element.includes($("#namelistkey").val())
@@ -801,7 +816,7 @@ ICON-LEM-PER: <label for="iconlem" id="iconlem"> </label> </br>
                 }
             });
             $.ajax({
-                url : "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_LEM_today",
+                url : url3,
                 dataType: "text",
                 success : function (data) {
                     const regex1 = (element) => element.includes($("#namelistkey").val())
@@ -811,7 +826,6 @@ ICON-LEM-PER: <label for="iconlem" id="iconlem"> </label> </br>
                 }
             });
         });
-    });
 </script>
 
 <hr>
