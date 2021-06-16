@@ -1,12 +1,13 @@
 
 
 &parallel_nml
- nproma          =  760
+ nproma          =  752
  p_test_run      = .false.
  l_test_openmp   = .false.
  l_log_checks    = .true.
- num_io_procs    =  4
+ num_io_procs    =  2
  num_restart_procs = 0
+ num_prefetch_proc = 0
  itype_comm      =  1
  iorder_sendrecv =  3
  proc0_shift     = 1
@@ -14,7 +15,7 @@
 /    
 
 &grid_nml
- dynamics_grid_filename = "Torus_Triangles_100x100_2500m.nc",
+ dynamics_grid_filename = "Torus_Triangles_50x50_200m.nc",
  corio_lat              = 52.2                      
  is_plane_torus         = .TRUE.
 /
@@ -42,8 +43,8 @@
 
 &run_nml
  num_lev        = 65           
- dtime          = 5     
- nsteps         = 17280
+ dtime          = 0.5     
+ nsteps         = 172800
  ldynamics      = .TRUE.      
  ltransport     = .TRUE.
  ntracer        = 5            
@@ -57,17 +58,17 @@
 
 &nwp_phy_nml
  inwp_gscp       = 1
- inwp_convection = 1 
+ inwp_convection = 0 
  inwp_radiation  = 4 
- inwp_cldcover   = 1 
- inwp_turb       = 1 
+ inwp_cldcover   = 5 
+ inwp_turb       = 5 
  inwp_satad      = 1
- inwp_sso        = 1
- inwp_gwd        = 1
+ inwp_sso        = 0
+ inwp_gwd        = 0
  inwp_surface    = 1 
  icapdcycl       = 3 
- icpl_aero_conv  = 1
- icpl_aero_gscp  = 1
+
+
  icpl_o3_tp      = 1
  latm_above_top  = .TRUE.  
  itype_z0        = 2
@@ -139,7 +140,7 @@
 
 &radiation_nml
  irad_o3                      = 79
- irad_aero                    = 6
+ irad_aero                    = 5
  izenith                      = 4           
  albedo_type                  = 2 
  vmr_co2                      = 390.e-06 
@@ -214,9 +215,9 @@
 /
 
 &transport_nml
- ivadv_tracer                 = 3,3,3,3,3
- itype_hlimit                 = 3,4,4,4,4,0
- ihadv_tracer                 = 52,2,2,2,2,0
+
+
+
 /
 
 &diffusion_nml
@@ -229,8 +230,16 @@
  lhdiff_temp                  = .true.
 /
 
+&les_nml
+ isrfc_type                   = 1      
+ avg_interval_sec             = 60.
+ sampl_freq_sec               = 60.
+ ldiag_les_out                = .TRUE.
+ expname                      = 'LEM'
+/
+
 &extpar_nml
- itopo                        = 1   
+ itopo                        = 0   
 
 
 
@@ -243,7 +252,7 @@
  mode             =  1                        
  steps_per_file   = 10000
  include_last     = .TRUE.
- output_filename  = 'crm_out'
+ output_filename  = 'lem_out'
  filename_format  = "<output_filename>_<levtype>_<datetime2>"
  ml_varlist       = 'z_ifc','z_mc','u','v','w','temp','pres','rho','theta_v','pres_sfc','div','qv','shfl_s','lhfl_s','u_10m','v_10m','t_2m','rh','t_g','tke','clct','clc'
  output_grid      = .TRUE.
