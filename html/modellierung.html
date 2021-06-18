@@ -248,10 +248,18 @@
 <h1> Modellierung </h1>
 
 <hr>
-Diese Seite ist im Aufbau. Abbildungen der ICON-SCM, ICON-CRM-PER und ICON-LEM-PER Simulationen können sich durch Anpassung der Experimentenkonfiguration noch ändern.
+<h2> 1. LES - Fallstudien</h2>
+
+<p><a href="https://ikroener.github.io/fesstval_figs/uploads/ICON-LES_during_FESSTVaL.pdf">ICON-LES Fallstudien während FESSTVaL</a> (PDF)</p>
+
+<hr>
+<h2> 2. tägliche, idealisierte Simulationen - Quick Looks </h2>
+
+<hr>
+Dieser Teil der Seite ist im Aufbau. Abbildungen der ICON-SCM, ICON-CRM-PER und ICON-LEM-PER Simulationen können sich durch Anpassung der Experimentenkonfiguration noch ändern.
 <hr>
 
-Die hier gezeigten Abbildungen zeigen einen Vergleich von Beobachtungen und ICON-Modellvorhersagen in unterschiedlichen Konfigurationen. ICON-D2 ist ein operationelles Setting mit NWP Physik und 2.2km horizontaler Auflösung im Limited Area Mode. ICON-Global ist das operationelle System über den gesamten Globus.
+Die hier gezeigten Abbildungen zeigen einen Vergleich von Beobachtungen und ICON-Modellvorhersagen in unterschiedlichen Konfigurationen. ICON-D2 ist ein operationelles Setting mit NWP Physik und 2.2km horizontaler Auflösung im Limited Area Mode. ICON-Global ist das operationelle System über den gesamten Globus. <br>
 
 Die halb-idealistischen Simulationen, ICON-SCM (Single Column Mode), ICON-CRM (Cloud Resolving Mode) und ICON-LEM (Large Eddy Mode), sind angetrieben mit idealisiertem 1D-Forcing und werden auf einem periodischen Torus Gitter gerechnet. Dies muss bei einem Vergleich der beiden dargestellten Gruppen berücksichtigt werden. Während ein qualitativer Vergleich zwischen Beobachtungen, realistischen (ICON-D2 und ICON-Global) sowie halb-idealistischen Simulationen (ICON-SCM,ICON-CRM und ICON-LEM) möglich ist, ist ein quantitativer Vergleich lediglich innerhalb der Gruppen (Reihen) konsistent.
 
@@ -260,7 +268,7 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
 <hr>
 
 
-<h2 align="left">Archiv:</h2>
+<h4 align="left">Archiv:</h4>
 <input type="date" id="seldate" placeholder="yyyy-mm-dd"><button id="archive">Auswahl</button> </p>
 
 <hr>
@@ -309,6 +317,7 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
             $("#iconcrm").html("")
             $("#iconlem").html("")
             
+            $("#histtab tr").remove();
         });
     });
 </script>
@@ -359,7 +368,7 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
 
 
 <tr>
-    <td colspan="3" align="left" valign="left" id="temperature"> <h2>Temperatur</h2> </td>
+    <td colspan="3" align="left" valign="left" id="temperature"> <h4>Temperatur</h4> </td>
 </tr>
 <tr>
     <td> <h4>realistisch:</h4> </td>
@@ -442,7 +451,7 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
 
 
 <tr>
-    <td colspan="3" align="left" valign="left" id="relative_humidity"> <h2>relative Feuchtigkeit</h2></td>
+    <td colspan="3" align="left" valign="left" id="relative_humidity"> <h4>relative Feuchtigkeit</h4></td>
 </tr>
 <tr>
     <td> <h4>realistisch:</h4> </td>
@@ -521,7 +530,7 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
 
 
 
-<tr><td colspan="2" align="left" valign="left" id="skewt"> <h2>SkewT</h2> </td></tr>
+<tr><td colspan="2" align="left" valign="left" id="skewt"> <h4>SkewT</h4> </td></tr>
 <tr><td>
         <select id="seltime" name="12">
           <option value="00">00 UTC</option>
@@ -583,7 +592,7 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
 
 
 <tr>
-    <td colspan="3" align="left" valign="left" id="wind_speed"> <h2>Windgeschwindigkeit</h2> </td>
+    <td colspan="3" align="left" valign="left" id="wind_speed"> <h4>Windgeschwindigkeit</h4> </td>
 </tr>
 <tr>
     <td> <h4>realistisch:</h4> </td>
@@ -660,7 +669,7 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
 </tr>
 
 <tr>
- <td colspan="3" align="left" valign="left" id="wind_direction"> <h2>Windrichtung</h2> </td>
+ <td colspan="3" align="left" valign="left" id="wind_direction"> <h4>Windrichtung</h4> </td>
 </tr>
 <td colspan="3" align="center" valign="center"><a href="wind_dir-combined-today.png" onclick="openPic('wd_img_com','width=1200,height=450,status=0,menubar=0'); return false;" target="wd_img_com">
   <img id="wd_img_com" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wind_dir-combined-today.png" width="66%" /></a>
@@ -671,7 +680,7 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
 </tr>
 
 <tr>
- <td colspan="3" align="left" valign="left" id="msl_pressure"> <h2>Mean Sea Level Pressure</h2></td>
+ <td colspan="3" align="left" valign="left" id="msl_pressure"> <h4>Mean Sea Level Pressure</h4></td>
 </tr>
 <td colspan="3" align="center" valign="center"><a href="msl_pressure-combined-today.png" onclick="openPic('msl_img_com','width=600,height=450,status=0,menubar=0'); return false;" target="msl_img_com">
 <img id="msl_img_com" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/msl_pressure-combined-today.png" width="33%" /> </a>
@@ -682,7 +691,7 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
 </tr>
 
 <tr>
- <td colspan="3" align="left" valign="left" id="tke"> <h2>Turbulent kinetische Energie</h2></td>
+ <td colspan="3" align="left" valign="left" id="tke"> <h4>Turbulent kinetische Energie</h4></td>
 </tr>
 <td colspan="3" align="center" valign="center"><a href="tke-combined-today.png" onclick="openPic('tke_img_com','width=600,height=450,status=0,menubar=0'); return false;" target="tke_img_com">
 <img id="tke_img_com" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/tke-combined-today.png" width="33%" /> </a>
@@ -693,7 +702,7 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
 </tr>
 
 <tr>
- <td colspan="3" align="left" valign="left" id="hf"> <h2>Wärmeflüsse</h2></td>
+ <td colspan="3" align="left" valign="left" id="hf"> <h4>Wärmeflüsse</h4></td>
 </tr>
 <td colspan="3" align="center" valign="center"><a href="shfl-combined-today.png" onclick="openPic('shfl_img_com','width=600,height=450,status=0,menubar=0'); return false;" target="shfl_img_com">
 <img id="shfl_img_com" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/shfl-combined-today.png" width="33%" /> </a>
@@ -707,7 +716,7 @@ Siehe das Ende dieser Seite für weitere Details der einzelnen Konfigurationen u
 </tr>
 
 <tr>
- <td colspan="3" align="left" valign="left" id="hf"> <h2>Bedeckungsgrad</h2></td>
+ <td colspan="3" align="left" valign="left" id="hf"> <h4>Bedeckungsgrad</h4></td>
 </tr>
 <td colspan="3" align="center" valign="center"><a href="total_cloud_cover-combined-today.png" onclick="openPic('clct_img_com','width=600,height=450,status=0,menubar=0'); return false;" target="clct_img_com">
 <img id="clct_img_com" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/total_cloud_cover-combined-today.png" width="33%" /> </a>
@@ -767,7 +776,7 @@ ICON-CRM-PER: NWP Physik, aktivierte Dynamik, periodisches Torus Gitter (100x100
 ICON-LEM-PER: LEM Physik, aktivierte Dynamik, periodisches Torus Gitter (100x100) mit 100 m horizontaler Auflösung </br>
 </br>
 Suche innerhalb der Konfigurationsdateien mittels Freitext oder Dropdown Menü:</br>
-<input type="text" id="namelistkey" list="listkeys"><button id="selkey">Auswahl</button>
+<input type="text" id="namelistkey" list="listkeys"><button id="selkey">Aktuell</button><button id="selhist">Historie</button>
     <datalist id="listkeys">
         <option value='lcoriolis'>
         <option value='ldynamics'>
@@ -775,15 +784,26 @@ Suche innerhalb der Konfigurationsdateien mittels Freitext oder Dropdown Menü:<
         <option value='nh_test_name'>
     </datalist>
 
+<hr>
 </br>
-</br>
-ICON-SCM    : <label for="iconscm" id="iconscm"> </label> </br>
-ICON-CRM-PER: <label for="iconcrm" id="iconcrm"> </label> </br>
-ICON-LEM-PER: <label for="iconlem" id="iconlem"> </label> </br>
+    
+<table id="histtab" align="center" style="width:100%" border="0" cellpadding="0">
+<colgroup>
+    <col span="1" style="width: 10%;">
+    <col span="1" style="width: 24%;">
+    <col span="1" style="width: 24%;">
+    <col span="1" style="width: 24%;">
+</colgroup>
+<tr style="border-bottom:1px solid black">
+  <td colspan="100%"><p class="pull-right"> </td>
+</tr>
+</table>
 
 
 <script>
         $("#selkey").click(function() {
+            $("#histtab tr").remove();
+            $('#histtab > tbody:last-child').append('<tr><td>Date</td><td> ICON-SCM </td><td> ICON-CRM-PER </td><td> ICON-LEM-PER </td></tr>')
             var date = $("#seldate").val().replace("-","").replace("-","")
             if ( date ) {
                 var url1 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/archive/"+date+"/NAMELIST_SCM_dt1.0_" + date + "00"
@@ -793,43 +813,99 @@ ICON-LEM-PER: <label for="iconlem" id="iconlem"> </label> </br>
                 var url1 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_SCM_dt1.0_today"
                 var url2 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_CRM_dt1.0_today"
                 var url3 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_LEM_dt1.0_today"
+                date = "current"
             }
             
+            var tmp1 = "NULL"
+            var tmp2 = "NULL"
+            var tmp3 = "NULL"
             $.ajax({
                 url : url1,
+                async: false,
                 dataType: "text",
                 success : function (data) {
                     const regex1 = (element) => element.includes($("#namelistkey").val())
                     var dataarray = data.split('\n')
                     var i = dataarray.findIndex(regex1);
-                    $("#iconscm").html(dataarray[i])
+                    tmp1 = dataarray[i]
                 }
             });
             $.ajax({
                 url : url2,
+                async: false,
                 dataType: "text",
                 success : function (data) {
                     const regex1 = (element) => element.includes($("#namelistkey").val())
                     var dataarray = data.split('\n')
                     var i = dataarray.findIndex(regex1);
-                    $("#iconcrm").html(dataarray[i])
+                    tmp2 = dataarray[i]
                 }
             });
             $.ajax({
                 url : url3,
+                async: false,
                 dataType: "text",
                 success : function (data) {
                     const regex1 = (element) => element.includes($("#namelistkey").val())
                     var dataarray = data.split('\n')
                     var i = dataarray.findIndex(regex1);
-                    $("#iconlem").html(dataarray[i])
+                    tmp3 = dataarray[i]
                 }
             });
-        });
+            $('#histtab > tbody:last-child').append('<tr><td>' + date + '</td><td>'+tmp1+'</td><td>'+tmp2+'</td><td>'+tmp3+'</td></tr>')});
+
+    $("#selhist").click(function() {
+
+    $("#histtab tr").remove();
+    $('#histtab > tbody:last-child').append('<tr><td>Date</td><td> ICON-SCM </td><td> ICON-CRM-PER </td><td> ICON-LEM-PER </td></tr>')
+    $.ajax({
+        url: "https://api.github.com/repos/ikroener/fesstval_figs/contents/archive",
+        success: function (datalist) {
+            $(datalist).each(function(k) {
+                var date = datalist[k]['name']
+                var url1 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/archive/" + date+ "/NAMELIST_SCM_dt1.0_" + date + '00'
+                var url2 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/archive/" + date+ "/NAMELIST_CRM_dt1.0_" + date + '00'
+                var url3 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/archive/" + date+ "/NAMELIST_LEM_dt1.0_" + date + '00'
+                var tmp1 = "NULL"
+                var tmp2 = "NULL"
+                var tmp3 = "NULL"
+                $.ajax({
+                    url : url1,
+                    async: false,
+                    dataType: "text",
+                    success : function (data) {
+                        const regex1 = (element) => element.includes($("#namelistkey").val())
+                        var dataarray = data.split('\n')
+                        var i = dataarray.findIndex(regex1);
+                        tmp1 = dataarray[i]
+                    }
+                });
+                $.ajax({
+                    url : url2,
+                    async: false,
+                    dataType: "text",
+                    success : function (data) {
+                        const regex1 = (element) => element.includes($("#namelistkey").val())
+                        var dataarray = data.split('\n')
+                        var i = dataarray.findIndex(regex1);
+                        tmp2 = dataarray[i]
+                    }
+                });
+                $.ajax({
+                    url : url3,
+                    async: false,
+                    dataType: "text",
+                    success : function (data) {
+                        const regex1 = (element) => element.includes($("#namelistkey").val())
+                        var dataarray = data.split('\n')
+                        var i = dataarray.findIndex(regex1);
+                        tmp3 = dataarray[i]
+                    }
+                });
+                $('#histtab > tbody:last-child').append('<tr><td>' + date + '</td><td>'+tmp1+'</td><td>'+tmp2+'</td><td>'+tmp3+'</td></tr>')})}
+    });
+    });
 </script>
-
-<hr>
-
 
 
 </br>
