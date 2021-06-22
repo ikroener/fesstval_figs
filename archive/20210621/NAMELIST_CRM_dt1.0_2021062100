@@ -1,20 +1,26 @@
 
+
 &parallel_nml
- nproma         =  32
- p_test_run     = .false.
- num_io_procs   =  2         
- l_test_openmp  = .false.
- l_log_checks   = .false.
-/
+ nproma          =  760
+ p_test_run      = .false.
+ l_test_openmp   = .false.
+ l_log_checks    = .true.
+ num_io_procs    =  4
+ num_restart_procs = 0
+ itype_comm      =  1
+ iorder_sendrecv =  3
+ proc0_shift     = 1
+ use_omp_input   = .true.
+/    
 
 &grid_nml
- dynamics_grid_filename = "Torus_Triangles_4x4_2500m.nc",
+ dynamics_grid_filename = "Torus_Triangles_100x100_2500m.nc",
  corio_lat              = 52.2                      
  is_plane_torus         = .TRUE.
 /
 
 &nh_testcase_nml
- nh_test_name   = 'SCM'     
+ nh_test_name   = 'CRM'     
 /
 
 &nh_SCM_nml
@@ -38,8 +44,8 @@
  num_lev        = 65           
  dtime          = 5     
  nsteps         = 17280
- ldynamics      = .FALSE.      
- ltransport     = .FALSE.
+ ldynamics      = .TRUE.      
+ ltransport     = .TRUE.
  ntracer        = 5            
  iforcing       = 3            
  ltestcase      = .TRUE.       
@@ -191,7 +197,7 @@
 &sleve_nml
  min_lay_thckn                = 20.         
  max_lay_thckn                = 25000.        
- htop_thcknlimit              = 15000.
+ htop_thcknlimit              = 14000.
  top_height                   = 22000.
  stretch_fac                  = 0.65
  decay_scale_1                = 4000.
@@ -237,7 +243,7 @@
  mode             =  1                        
  steps_per_file   = 10000
  include_last     = .TRUE.
- output_filename  = 'scm_out'
+ output_filename  = 'crm_out'
  filename_format  = "<output_filename>_<levtype>_<datetime2>"
  ml_varlist       = 'z_ifc','z_mc','u','v','w','temp','pres','rho','theta_v','pres_sfc','div','qv','shfl_s','lhfl_s','u_10m','v_10m','t_2m','rh','t_g','tke','clct','clc'
  output_grid      = .TRUE.
