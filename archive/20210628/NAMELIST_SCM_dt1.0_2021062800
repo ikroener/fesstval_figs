@@ -17,7 +17,7 @@
  nh_test_name   = 'SCM'     
 /
 
-&nh_scm_nml
+&scm_nml
  case_scm      = 'REAL'     
  is_scm_netcdf = .TRUE.     
  lscm_read_tke = .FALSE.    
@@ -52,7 +52,7 @@
 &nwp_phy_nml
  inwp_gscp       = 1
  inwp_convection = 1 
- inwp_radiation  = 4 
+ inwp_radiation  = 1 
  inwp_cldcover   = 1 
  inwp_turb       = 1 
  inwp_satad      = 1

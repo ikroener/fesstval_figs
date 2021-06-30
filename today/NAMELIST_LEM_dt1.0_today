@@ -26,7 +26,7 @@
  th_perturb     = 1.
 /
 
-&nh_SCM_nml
+&SCM_nml
  case_scm      = 'REAL'     
  is_scm_netcdf = .TRUE.     
  lscm_read_tke = .FALSE.    
