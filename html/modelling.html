@@ -170,11 +170,11 @@ See the bottom of this page for a detailed information of the shown data.
 <script>
     $(document).ready(function() {
         $("#archive").click(function() {
-            var basedir = 'https://raw.githubusercontent.com/ikroener/fesstval_figs/main/';
+            var basedir = 'https://raw.githubusercontent.com/ikroener/fesstval_figs/name_changes/';
             //var date = $('#seldate').value();
             var date = $("#seldate").val().replace("-","").replace("-","")
             var variables = ['#T','#rh','#ws','#clc']
-            var varnames = ['temperature','relative_humidity','wind_speed','cloud_cover']
+            var varnames = ['temp','rel_hum','wspeed','clc']
             var ids = ['_img_obs','_img_scm','_img_mod1','_img_mod2','_img_crm','_img_lem']; // '_img_scm2'
             var names = ['obs','SCM_D2','ICON_GLOBAL','ICON_D2','CRM_D2','LEM_D2']; // SCM2
             $.each(variables,function(jndex,jalue) {
@@ -186,7 +186,7 @@ See the bottom of this page for a detailed information of the shown data.
             })
             var variables2 = ['#wd','#msl','#tke','#shfl','#lhfl','#clct','#m2']
             var ids2 = ['_img_com'];
-            var varnames2 = ['wind_dir','msl_pressure','tke','shfl','lhfl','total_cloud_cover','m2_temperature']
+            var varnames2 = ['wdir','p_sfc','tke','shfl','lhfl','clct','t2m']
             
             $.each(variables2,function(jndex,jalue) {
             $.each(ids2,function(index, value) {
@@ -198,7 +198,7 @@ See the bottom of this page for a detailed information of the shown data.
             
             var variables3 = ['#T','#rh','#ws']
             var ids3 = ['00','06','12','18'];
-            var varnames3 = ['temperature','relative_humidity','wind_speed']
+            var varnames3 = ['temp','rel_hum','wspeed']
             $.each(variables3,function(jndex,jalue) {
             $.each(ids3,function(index, value) {
                 var i = (index) % 6
@@ -244,12 +244,12 @@ See the bottom of this page for a detailed information of the shown data.
 
 
 <div>List of Variables: </div>
-<a href="#temperature">Temperature</a> -- 
-<a href="#relative_humidity">Relative humidity</a> -- 
+<a href="#temp">Temperature</a> -- 
+<a href="#rel_hum">Relative humidity</a> -- 
 <a href="#skewt">SkewT</a> -- 
-<a href="#wind_speed">Wind speed</a> -- 
-<a href="#wind_direction">Wind direction</a> -- 
-<a href="#msl_press">MSLP</a> -- 
+<a href="#wspeed">Wind speed</a> -- 
+<a href="#wdir">Wind direction</a> -- 
+<a href="#p_sfc">MSLP</a> -- 
 <a href="#tke">TKE</a> --  
 <a href="#hf">Heat Fluxes</a>
 <a href="#clc">Cloud cover</a> -- 
@@ -270,7 +270,7 @@ See the bottom of this page for a detailed information of the shown data.
 
 
 <tr>
-    <td colspan="3" align="left" valign="left" id="temperature"> <h2>Temperature</h2> </td>
+    <td colspan="3" align="left" valign="left" id="temp"> <h2>Temperature</h2> </td>
 </tr>
 <tr>
     <td> <h4>realistic:</h4> </td>
@@ -278,21 +278,21 @@ See the bottom of this page for a detailed information of the shown data.
 <tr>
 <td align="left">
     Observation: <br>
-    <a href="temperature-obs-today.png" onclick="openPic('T_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_obs">
+    <a href="temp-obs-today.png" onclick="openPic('T_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_obs">
    <img id="T_img_obs" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temperature-obs-today.png"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-obs-today.png"
            width="100%" alt="" /></a>
 </td><td align="left">
     ICON-D2: <br>
-   <a href="temperature-ICON_D2-today.png" onclick="openPic('T_img_mod2','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_mod2">
+   <a href="temp-ICON_D2-today.png" onclick="openPic('T_img_mod2','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_mod2">
    <img id="T_img_mod2" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temperature-ICON_D2-today.png"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-ICON_D2-today.png"
            width="100%" alt="" /></a>
 </td><td align="left">
     ICON-Global: <br>
-   <a href="temperature-ICON_GLOBAL-today.png" onclick="openPic('T_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_mod1">
+   <a href="temp-ICON_GLOBAL-today.png" onclick="openPic('T_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_mod1">
    <img id="T_img_mod1" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temperature-ICON_GLOBAL-today.png"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-ICON_GLOBAL-today.png"
            width="100%" alt="" /></a>
 </td>
 </tr>
@@ -302,18 +302,18 @@ See the bottom of this page for a detailed information of the shown data.
 <tr>
 <td align="left">
     ICON-SCM: <br>
-    <a href="temperature-SCM_D2-today.png" onclick="openPic('T_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_scm"><img id="T_img_scm" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temperature-SCM_D2-today.png"
+    <a href="temp-SCM_D2-today.png" onclick="openPic('T_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_scm"><img id="T_img_scm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-SCM_D2-today.png"
            width="100%" alt="" /></a>
 </td><td align="left">
     ICON-CRM-PER: <br>
-    <a href="temperature-CRM_D2-today.png" onclick="openPic('T_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_crm"><img id="T_img_crm" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temperature-CRM_D2-today.png"
+    <a href="temp-CRM_D2-today.png" onclick="openPic('T_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_crm"><img id="T_img_crm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-CRM_D2-today.png"
            width="100%" alt="" /></a>
 </td><td  align="left">
     ICON-LEM-PER : <br>
-    <a href="temperature-LEM_D2-today.png" onclick="openPic('T_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_lem"><img id="T_img_lem" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temperature-LEM_D2-today.png"
+    <a href="temp-LEM_D2-today.png" onclick="openPic('T_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_lem"><img id="T_img_lem" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-LEM_D2-today.png"
            width="100%" alt="" /></a>
 </td>
 </tr>
@@ -322,18 +322,18 @@ See the bottom of this page for a detailed information of the shown data.
 </tr>
 
 <tr>
-    <td colspan="3" align="left" valign="left" id="relative_humidity">
-        <a href="temperature-profile00-today.png" onclick="openPic('T_p00_com','width=600,height=450,status=0,menubar=0'); return false;" target="T_p00_com"><img id="T_p00_com" class="image-embed-item"
-               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temperature-profile00-today.png"
+    <td colspan="3" align="left" valign="left" id="rel_hum">
+        <a href="temp-profile00-today.png" onclick="openPic('T_p00_com','width=600,height=450,status=0,menubar=0'); return false;" target="T_p00_com"><img id="T_p00_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-profile00-today.png"
                width="24%" alt="" /></a>
-        <a href="temperature-profile06-today.png" onclick="openPic('T_p06_com','width=600,height=450,status=0,menubar=0'); return false;" target="T_p06_com"><img id="T_p06_com" class="image-embed-item"
-               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temperature-profile06-today.png"
+        <a href="temp-profile06-today.png" onclick="openPic('T_p06_com','width=600,height=450,status=0,menubar=0'); return false;" target="T_p06_com"><img id="T_p06_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-profile06-today.png"
                width="24%" alt="" /></a>
-        <a href="temperature-profile12-today.png" onclick="openPic('T_p12_com','width=600,height=450,status=0,menubar=0'); return false;" target="T_p12_com"><img id="T_p12_com" class="image-embed-item"
-               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temperature-profile12-today.png"
+        <a href="temp-profile12-today.png" onclick="openPic('T_p12_com','width=600,height=450,status=0,menubar=0'); return false;" target="T_p12_com"><img id="T_p12_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-profile12-today.png"
                width="24%" alt="" /></a>
-        <a href="temperature-profile18-today.png" onclick="openPic('T_p18_com','width=600,height=450,status=0,menubar=0'); return false;" target="T_p18_com"><img id="T_p18_com" class="image-embed-item"
-               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temperature-profile18-today.png"
+        <a href="temp-profile18-today.png" onclick="openPic('T_p18_com','width=600,height=450,status=0,menubar=0'); return false;" target="T_p18_com"><img id="T_p18_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-profile18-today.png"
                width="25%" alt="" /></a>
     </td>
 </tr>
@@ -342,8 +342,8 @@ See the bottom of this page for a detailed information of the shown data.
   <td colspan="100%">  </td>
 </tr>
 
-<td colspan="3" align="center" valign="center"><a href="m2_temperature-combined-today.png" onclick="openPic('m2_img_com','width=1200,height=450,status=0,menubar=0'); return false;" target="m2_img_com">
-  <img id="m2_img_com" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/m2_temperature-combined-today.png" width="33%" /></a>
+<td colspan="3" align="center" valign="center"><a href="t2m-combined-today.png" onclick="openPic('m2_img_com','width=1200,height=450,status=0,menubar=0'); return false;" target="m2_img_com">
+  <img id="m2_img_com" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/t2m-combined-today.png" width="33%" /></a>
 </td>
 
 <tr style="border-bottom:1px solid black">
@@ -352,7 +352,7 @@ See the bottom of this page for a detailed information of the shown data.
 
 
 <tr>
-    <td colspan="3" align="left" valign="left" id="relative_humidity"> <h2>relative Humidity</h2></td>
+    <td colspan="3" align="left" valign="left" id="rel_hum"> <h2>relative Humidity</h2></td>
 </tr>
 <tr>
     <td> <h4>realistic:</h4> </td>
@@ -360,21 +360,21 @@ See the bottom of this page for a detailed information of the shown data.
 <tr>
 <td align="left">
     Observation: <br>
-    <a href="relative_humidity-obs-today.png" onclick="openPic('rh_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_obs">
+    <a href="rel_hum-obs-today.png" onclick="openPic('rh_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_obs">
    <img id="rh_img_obs"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/relative_humidity-obs-today.png"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-obs-today.png"
            width="100%" alt="" /></a>
 </td><td align="left">
     ICON-D2: <br>
-   <a href="relative_humidity-ICON_D2-today.png" onclick="openPic('rh_img_mod2','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_mod2">
+   <a href="rel_hum-ICON_D2-today.png" onclick="openPic('rh_img_mod2','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_mod2">
    <img id="rh_img_mod2" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/relative_humidity-ICON_D2-today.png"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-ICON_D2-today.png"
            width="100%" alt="" />
 </td><td align="left">
     ICON-Global: <br>
-   <a href="relative_humidity-ICON_GLOBAL-today.png" onclick="openPic('rh_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_mod1">
+   <a href="rel_hum-ICON_GLOBAL-today.png" onclick="openPic('rh_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_mod1">
    <img id="rh_img_mod1" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/relative_humidity-ICON_GLOBAL-today.png"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-ICON_GLOBAL-today.png"
            width="100%" alt="" /></a>
 </td>
 </tr>
@@ -384,18 +384,18 @@ See the bottom of this page for a detailed information of the shown data.
 <tr>
 <td align="left">
     ICON-SCM: <br>
-    <a href="relative_humidity-SCM_D2-today.png" onclick="openPic('rh_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_scm"><img id="rh_img_scm" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/relative_humidity-SCM_D2-today.png"
+    <a href="rel_hum-SCM_D2-today.png" onclick="openPic('rh_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_scm"><img id="rh_img_scm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-SCM_D2-today.png"
            width="100%" alt="" /></a>
 </td><td align="left">
     ICON-CRM-PER: <br>
-    <a href="relative_humidity-CRM_D2-today.png" onclick="openPic('rh_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_crm"><img id="rh_img_crm" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/relative_humidity-CRM_D2-today.png"
+    <a href="rel_hum-CRM_D2-today.png" onclick="openPic('rh_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_crm"><img id="rh_img_crm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-CRM_D2-today.png"
            width="100%" alt="" /></a>
 </td><td align="left">
     ICON-LEM-PER: <br>
-    <a href="relative_humidity-LEM_D2-today.png" onclick="openPic('rh_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_lem"><img id="rh_img_lem" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/relative_humidity-LEM_D2-today.png"
+    <a href="rel_hum-LEM_D2-today.png" onclick="openPic('rh_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_lem"><img id="rh_img_lem" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-LEM_D2-today.png"
            width="100%" alt="" /></a>
 </td>
 </td>
@@ -408,18 +408,18 @@ See the bottom of this page for a detailed information of the shown data.
 </tr>
 
 <tr>
-    <td colspan="3" align="left" valign="left" id="relative_humidity">
-        <a href="relative_humidity-profile00-today.png" onclick="openPic('rh_p00_com','width=600,height=450,status=0,menubar=0'); return false;" target="rh_p00_com"><img id="rh_p00_com" class="image-embed-item"
-               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/relative_humidity-profile00-today.png"
+    <td colspan="3" align="left" valign="left" id="rel_hum">
+        <a href="rel_hum-profile00-today.png" onclick="openPic('rh_p00_com','width=600,height=450,status=0,menubar=0'); return false;" target="rh_p00_com"><img id="rh_p00_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-profile00-today.png"
                width="24%" alt="" /></a>
-        <a href="relative_humidity-profile06-today.png" onclick="openPic('rh_p06_com','width=600,height=450,status=0,menubar=0'); return false;" target="rh_p06_com"><img id="rh_p06_com" class="image-embed-item"
-               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/relative_humidity-profile06-today.png"
+        <a href="rel_hum-profile06-today.png" onclick="openPic('rh_p06_com','width=600,height=450,status=0,menubar=0'); return false;" target="rh_p06_com"><img id="rh_p06_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-profile06-today.png"
                width="24%" alt="" /></a>
-        <a href="relative_humidity-profile12-today.png" onclick="openPic('rh_p12_com','width=600,height=450,status=0,menubar=0'); return false;" target="rh_p12_com"><img id="rh_p12_com" class="image-embed-item"
-               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/relative_humidity-profile12-today.png"
+        <a href="rel_hum-profile12-today.png" onclick="openPic('rh_p12_com','width=600,height=450,status=0,menubar=0'); return false;" target="rh_p12_com"><img id="rh_p12_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-profile12-today.png"
                width="24%" alt="" /></a>
-        <a href="relative_humidity-profile18-today.png" onclick="openPic('rh_p18_com','width=600,height=450,status=0,menubar=0'); return false;" target="rh_p18_com"><img id="rh_p18_com" class="image-embed-item"
-               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/relative_humidity-profile18-today.png"
+        <a href="rel_hum-profile18-today.png" onclick="openPic('rh_p18_com','width=600,height=450,status=0,menubar=0'); return false;" target="rh_p18_com"><img id="rh_p18_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-profile18-today.png"
                width="25%" alt="" /></a>
     </td>
 </tr>
@@ -493,7 +493,7 @@ See the bottom of this page for a detailed information of the shown data.
 
 
 <tr>
-    <td colspan="3" align="left" valign="left" id="wind_speed"> <h2>Wind Speed</h2> </td>
+    <td colspan="3" align="left" valign="left" id="wspeed"> <h2>Wind Speed</h2> </td>
 </tr>
 <tr>
     <td> <h4>realistic:</h4> </td>
@@ -501,21 +501,21 @@ See the bottom of this page for a detailed information of the shown data.
 <tr>
 <td align="left">
     Observation: <br>
-    <a href="wind_speed-obs-today.png" onclick="openPic('ws_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="ws_img_obs">
+    <a href="wspeed-obs-today.png" onclick="openPic('ws_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="ws_img_obs">
    <img id="ws_img_obs"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wind_speed-obs-today.png"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-obs-today.png"
            width="100%" alt="" /></a>
 </td><td align="left">
     ICON-D2: <br>
-   <a href="wind_speed-ICON_D2-today.png" onclick="openPic('ws_img_mod2','width=600,height=450,status=0,menubar=0'); return false;" target="thePicture">
+   <a href="wspeed-ICON_D2-today.png" onclick="openPic('ws_img_mod2','width=600,height=450,status=0,menubar=0'); return false;" target="thePicture">
    <img id="ws_img_mod2" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wind_speed-ICON_D2-today.png"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-ICON_D2-today.png"
            width="100%" alt="" /></a>
 </td><td align="left">
     ICON-Global: <br>
-   <a href="wind_speed-ICON_GLOBAL-today.png" onclick="openPic('ws_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="thePicture">
+   <a href="wspeed-ICON_GLOBAL-today.png" onclick="openPic('ws_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="thePicture">
    <img id="ws_img_mod1" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wind_speed-ICON_GLOBAL-today.png"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-ICON_GLOBAL-today.png"
            width="100%" alt="" /></a>
 </td>
 </tr>
@@ -525,18 +525,18 @@ See the bottom of this page for a detailed information of the shown data.
 <tr>
 <td  align="left">
     ICON-SCM: <br>
-    <a href="wind_speed-SCM_D2-today.png" onclick="openPic('ws_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="ws_img_scm"><img id="ws_img_scm" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wind_speed-SCM_D2-today.png"
+    <a href="wspeed-SCM_D2-today.png" onclick="openPic('ws_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="ws_img_scm"><img id="ws_img_scm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-SCM_D2-today.png"
            width="100%" alt="" /></a>
 </td><td align="left">
     ICON-CRM-PER: <br>
-    <a href="wind_speed-CRM_D2-today.png" onclick="openPic('ws_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="ws_img_crm"><img id="ws_img_crm" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wind_speed-CRM_D2-today.png"
+    <a href="wspeed-CRM_D2-today.png" onclick="openPic('ws_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="ws_img_crm"><img id="ws_img_crm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-CRM_D2-today.png"
            width="100%" alt="" /></a>
 </td><td align="left">
     ICON-LEM-PER: <br>
-    <a href="wind_speed-LEM_D2-today.png" onclick="openPic('ws_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="ws_img_lem"><img id="ws_img_lem" class="image-embed-item"
-           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wind_speed-LEM_D2-today.png"
+    <a href="wspeed-LEM_D2-today.png" onclick="openPic('ws_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="ws_img_lem"><img id="ws_img_lem" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-LEM_D2-today.png"
            width="100%" alt="" /></a>
 </a></figure>
 </td>
@@ -549,18 +549,18 @@ See the bottom of this page for a detailed information of the shown data.
 </tr>
 
 <tr>
-    <td colspan="3" align="left" valign="left" id="wind_speed">
-        <a href="wind_speed-profile00-today.png" onclick="openPic('ws_p00_com','width=600,height=450,status=0,menubar=0'); return false;" target="ws_p00_com"><img id="ws_p00_com" class="image-embed-item"
-               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wind_speed-profile00-today.png"
+    <td colspan="3" align="left" valign="left" id="wspeed">
+        <a href="wspeed-profile00-today.png" onclick="openPic('ws_p00_com','width=600,height=450,status=0,menubar=0'); return false;" target="ws_p00_com"><img id="ws_p00_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-profile00-today.png"
                width="24%" alt="" /></a>
-        <a href="wind_speed-profile06-today.png" onclick="openPic('ws_p06_com','width=600,height=450,status=0,menubar=0'); return false;" target="ws_p06_com"><img id="ws_p06_com" class="image-embed-item"
-               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wind_speed-profile06-today.png"
+        <a href="wspeed-profile06-today.png" onclick="openPic('ws_p06_com','width=600,height=450,status=0,menubar=0'); return false;" target="ws_p06_com"><img id="ws_p06_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-profile06-today.png"
                width="24%" alt="" /></a>
-        <a href="wind_speed-profile12-today.png" onclick="openPic('ws_p12_com','width=600,height=450,status=0,menubar=0'); return false;" target="ws_p12_com"><img id="ws_p12_com" class="image-embed-item"
-               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wind_speed-profile12-today.png"
+        <a href="wspeed-profile12-today.png" onclick="openPic('ws_p12_com','width=600,height=450,status=0,menubar=0'); return false;" target="ws_p12_com"><img id="ws_p12_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-profile12-today.png"
                width="24%" alt="" /></a>
-        <a href="wind_speed-profile18-today.png" onclick="openPic('ws_p18_com','width=600,height=450,status=0,menubar=0'); return false;" target="ws_p18_com"><img id="ws_p18_com" class="image-embed-item"
-               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wind_speed-profile18-today.png"
+        <a href="wspeed-profile18-today.png" onclick="openPic('ws_p18_com','width=600,height=450,status=0,menubar=0'); return false;" target="ws_p18_com"><img id="ws_p18_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-profile18-today.png"
                width="25%" alt="" /></a>
     </td>
 </tr>
@@ -570,11 +570,11 @@ See the bottom of this page for a detailed information of the shown data.
 </tr>
 
 <tr>
- <td colspan="3" align="left" valign="left" id="wind_direction"> <h2>Wind Direction</h2> </td>
+ <td colspan="3" align="left" valign="left" id="wdirection"> <h2>Wind Direction</h2> </td>
 </tr>
 <td colspan="3" align="center" valign="center">
-    <a href="wind_dir-combined-today.png" onclick="openPic('wd_img_com','width=1200,height=450,status=0,menubar=0'); return false;"
-        target="wd_img_com" class="image-embeded-item"><img id="wd_img_com" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wind_dir-combined-today.png" width="66%" /></a>
+    <a href="wdir-combined-today.png" onclick="openPic('wd_img_com','width=1200,height=450,status=0,menubar=0'); return false;"
+        target="wd_img_com" class="image-embeded-item"><img id="wd_img_com" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wdir-combined-today.png" width="66%" /></a>
 </td>
 
 <tr style="border-bottom:1px solid black">
@@ -582,11 +582,11 @@ See the bottom of this page for a detailed information of the shown data.
 </tr>
 
 <tr>
- <td colspan="3" align="left" valign="left" id="msl_pressure"> <h2>Mean Sea Level Pressure</h2></td>
+ <td colspan="3" align="left" valign="left" id="p_sfc"> <h2>Mean Sea Level Pressure</h2></td>
 </tr>
 <td colspan="3" align="center" valign="center">
-<a href="msl_pressure-combined-today.png" onclick="openPic('ws_p18_com','width=600,height=450,status=0,menubar=0'); return false;"
-    target="msl_img_com" class="image-embeded-item"><img id="msl_img_com" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/msl_pressure-combined-today.png" width="33%" /> </a>
+<a href="p_sfc-combined-today.png" onclick="openPic('ws_p18_com','width=600,height=450,status=0,menubar=0'); return false;"
+    target="msl_img_com" class="image-embeded-item"><img id="msl_img_com" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/p_sfc-combined-today.png" width="33%" /> </a>
 </td>
 
 <tr style="border-bottom:1px solid black">
@@ -623,8 +623,8 @@ See the bottom of this page for a detailed information of the shown data.
 <tr><td colspan="3" align="left" valign="left" id="clc"> <h2>Cloud Cover</h2></td></tr>
 
 <td colspan="3" align="center" valign="center">
-    <a href="total_cloud_cover-combined-today.png" onclick="openPic('clct_img_com','width=600,height=450,status=0,menubar=0'); return false;"
-        target="clct_img_com" class="image-embeded-item"><img id="clct_img_com" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/total_cloud_cover-combined-today.png" width="33%" /> </a>
+    <a href="clct-combined-today.png" onclick="openPic('clct_img_com','width=600,height=450,status=0,menubar=0'); return false;"
+        target="clct_img_com" class="image-embeded-item"><img id="clct_img_com" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clct-combined-today.png" width="33%" /> </a>
 </td>
 
 
@@ -635,26 +635,26 @@ See the bottom of this page for a detailed information of the shown data.
 <tr><td> <h4>realistic:</h4> </td></tr>
 <tr><td align="left">
     Observation: <br>
-    <a href="cloud_cover-obs-today.png" onclick="openPic('clc_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_obs" ><img id="clc_img_obs" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/cloud_cover-obs-today.png" width="100%" alt="" /></a>
+    <a href="clc-obs-today.png" onclick="openPic('clc_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_obs" ><img id="clc_img_obs" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clc-obs-today.png" width="100%" alt="" /></a>
 </td><td align="left">
     ICON-D2: <br>
-   <a href="cloud_cover-ICON_D2-today.png" onclick="openPic('clc_img_mod2','width=600,height=450,status=0,menubar=0');return false;" target="clc_img_mod2"><img id="clc_img_mod2" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/cloud_cover-ICON_D2-today.png" width="100%" alt="" />
+   <a href="clc-ICON_D2-today.png" onclick="openPic('clc_img_mod2','width=600,height=450,status=0,menubar=0');return false;" target="clc_img_mod2"><img id="clc_img_mod2" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clc-ICON_D2-today.png" width="100%" alt="" />
 </td><td align="left">
     ICON-Global: <br>
-    <a href="cloud_cover-ICON_GLOBAL-today.png" onclick="openPic('clc_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_mod1"> <img id="clc_img_mod1" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/cloud_cover-ICON_GLOBAL-today.png" width="100%" alt="" /></a>
+    <a href="clc-ICON_GLOBAL-today.png" onclick="openPic('clc_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_mod1"> <img id="clc_img_mod1" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clc-ICON_GLOBAL-today.png" width="100%" alt="" /></a>
 </td>
 </tr>
 <tr><td> <h4>semi-idealistic:</h4> </td></tr>
 <tr>
 <td align="left">
     ICON-SCM: <br>
-    <a href="cloud_cover-SCM_D2-today.png" onclick="openPic('clc_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_scm"><img id="clc_img_scm" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/cloud_cover-SCM_D2-today.png" width="100%" alt="" /></a>
+    <a href="clc-SCM_D2-today.png" onclick="openPic('clc_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_scm"><img id="clc_img_scm" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clc-SCM_D2-today.png" width="100%" alt="" /></a>
 </td><td align="left">
     ICON-CRM-PER: <br>
-    <a href="cloud_cover-CRM_D2-today.png" onclick="openPic('clc_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_crm"><img id="clc_img_crm" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/cloud_cover-CRM_D2-today.png" width="100%" alt="" /></a>
+    <a href="clc-CRM_D2-today.png" onclick="openPic('clc_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_crm"><img id="clc_img_crm" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clc-CRM_D2-today.png" width="100%" alt="" /></a>
 </td><td align="left">
     ICON-LEM-PER: <br>
-    <a href="cloud_cover-LEM_D2-today.png" onclick="openPic('clc_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_lem"><img id="clc_img_lem" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/cloud_cover-LEM_D2-today.png" width="100%" alt="" /></a>
+    <a href="clc-LEM_D2-today.png" onclick="openPic('clc_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_lem"><img id="clc_img_lem" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clc-LEM_D2-today.png" width="100%" alt="" /></a>
 </td></td></tr>
 </table>
 
