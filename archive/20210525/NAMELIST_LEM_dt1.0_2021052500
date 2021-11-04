@@ -1,0 +1,256 @@
+
+
+&parallel_nml
+ nproma          =  752
+ p_test_run      = .false.
+ l_test_openmp   = .false.
+ l_log_checks    = .true.
+ num_io_procs    =  2
+ num_restart_procs = 0
+ num_prefetch_proc = 0
+ itype_comm      =  1
+ iorder_sendrecv =  3
+ proc0_shift     = 1
+ use_omp_input   = .true.
+/    
+
+&grid_nml
+ dynamics_grid_filename = "Torus_Triangles_50x50_200m.nc",
+ corio_lat              = 52.2                      
+ is_plane_torus         = .TRUE.
+/
+
+&nh_testcase_nml
+ nh_test_name   = 'SCM'     
+/
+
+&nh_SCM_nml
+ case_scm      = 'REAL'     
+ is_scm_netcdf = .TRUE.     
+ lscm_read_tke = .FALSE.    
+ lscm_read_z0  = .TRUE.     
+ lscm_icon_ini = .TRUE.     
+ scm_sfc_mom   = 0          
+ scm_sfc_temp  = 0          
+ scm_sfc_qv    = 0          
+/
+
+&io_nml
+ dt_checkpoint  = 8640000
+ lkeep_in_sync  = .true.
+
+/
+
+&run_nml
+ num_lev        = 65           
+ dtime          = 0.2     
+ nsteps         = 432000
+ ldynamics      = .TRUE.      
+ ltransport     = .TRUE.
+ ntracer        = 5            
+ iforcing       = 3            
+ ltestcase      = .TRUE.       
+ ltimer         = .FALSE.      
+ msg_level      = 12           
+ output         = 'nml','totint'
+ check_uuid_gracefully = .TRUE.
+/
+
+&nwp_phy_nml
+ inwp_gscp       = 1
+ inwp_convection = 0 
+ inwp_radiation  = 4 
+ inwp_cldcover   = 5 
+ inwp_turb       = 5 
+ inwp_satad      = 1
+ inwp_sso        = 0
+ inwp_gwd        = 0
+ inwp_surface    = 1 
+ icapdcycl       = 3 
+
+
+ icpl_o3_tp      = 1
+ latm_above_top  = .TRUE.  
+ itype_z0        = 2
+ dt_rad	         = 1800.        
+ dt_conv         = 600.         
+ dt_sso	         = 600.         
+ dt_gwd	         = 600.         
+/
+
+&nwp_tuning_nml
+ itune_albedo                 = 0       
+ tune_zceff_min               = 0.01    
+ tune_gkdrag                  = 0.075   
+ tune_gkwake                  = 1.5     
+ tune_gfrcrit                 = 0.425   
+ tune_dust_abs                = 0.
+ tune_zvz0i                   = 0.85
+ tune_box_liq_asy             = 3.25   
+ tune_box_liq                 = 0.05
+ tune_rcucov                  = 0.075
+ tune_rhebc_land              = 0.825
+ tune_gust_factor             = 7.0
+ icpl_turb_clc                = 1
+ lcalib_clcov                 = .false. 
+/
+
+&turbdiff_nml
+ tkhmin                       = 0.6
+ tkhmin_strat                 = 1.0
+ tkmmin                       = 0.75
+ tkmmin_strat                 = 4
+ alpha0                       = 0.0123
+ alpha0_max                   = 0.0335
+ alpha1                       = 0.125
+ pat_len                      = 750.
+ c_diff                       = 0.2
+ rlam_heat                    = 10.0
+ rat_sea                      = 0.8
+ ltkesso                      = .true.  
+ frcsmot                      = 0.2     
+ imode_frcsmot                = 2       
+ itype_sher                   = 3       
+ ltkeshs                      = .true.
+ a_hshr                       = 2.0
+ icldm_turb                   = 1       
+ icldm_tran                   = 2       
+/
+
+&lnd_nml
+  ntiles         = 3
+  nlev_snow      = 3
+  lmulti_snow    = .false.
+  itype_heatcond = 3
+  idiag_snowfrac = 20
+  lsnowtile      = .true.
+  lseaice        = .true.
+  llake          = .true.
+  itype_lndtbl   = 4
+  itype_evsl     = 4
+  itype_trvg     = 3
+  itype_root     = 2
+  cwimax_ml      = 5.e-4
+  c_soil         = 1.25
+  c_soil_urb     = 0.5
+  sstice_mode    = 2
+  lprog_albsi    = .true.
+  itype_snowevap = 2
+/
+
+&radiation_nml
+ irad_o3                      = 79
+ irad_aero                    = 5
+ izenith                      = 4           
+ albedo_type                  = 2 
+ vmr_co2                      = 390.e-06 
+ vmr_ch4                      = 1800.e-09
+ vmr_n2o                      = 322.0e-09
+ vmr_o2                       = 0.20946
+ vmr_cfc11                    = 240.e-12
+ vmr_cfc12                    = 532.e-12
+ direct_albedo                = 4
+ direct_albedo_water          = 3
+ albedo_whitecap              = 1
+ llw_cloud_scat               = .true.
+ ecRad_data_path              = '/hpc/uhome/
+/
+
+&ls_forcing_nml
+ is_subsidence_moment         = .TRUE.
+ is_subsidence_heat           = .TRUE.
+ is_advection                 = .FALSE.
+ is_advection_uv              = .FALSE.
+ is_advection_tq              = .FALSE.
+ is_geowind                   = .TRUE.
+ is_rad_forcing               = .FALSE.
+ is_nudging                   = .TRUE.
+ is_nudging_uv                = .TRUE.
+ is_nudging_tq                = .TRUE.         
+ nudge_start_height           = 2000.0            
+ nudge_full_height            = 22000.0            
+ dt_relax                     = 3600.0     
+/
+
+&nonhydrostatic_nml
+ iadv_rhotheta                = 2
+ ivctype                      = 2
+ itime_scheme                 = 4
+ exner_expol                  = 0.333
+ vwind_offctr                 = 0.2         
+ damp_height                  = 44000.
+ rayleigh_coeff               = 0.5
+ lhdiff_rcf                   = .true.
+ divdamp_order                = 24          
+ divdamp_type                 = 32          
+ divdamp_fac                  = 0.004       
+ divdamp_trans_start          = 12500
+ divdamp_trans_end            = 17500
+ l_open_ubc                   = .false.
+ igradp_method                = 3
+ l_zdiffu_t                   = .true.
+ thslp_zdiffu                 = 0.02
+ thhgtd_zdiffu                = 125.
+ htop_moist_proc              = 22500.
+ hbot_qvsubstep               = 16000.
+/
+
+&sleve_nml
+ min_lay_thckn                = 20.         
+ max_lay_thckn                = 25000.        
+ htop_thcknlimit              = 14000.
+ top_height                   = 22000.
+ stretch_fac                  = 0.65
+ decay_scale_1                = 4000.
+ decay_scale_2                = 2500.
+ decay_exp                    = 1.2
+ flat_height                  = 16000.
+/
+
+&dynamics_nml
+ iequations                   = 3
+ idiv_method                  = 1
+ divavg_cntrwgt               = 0.50
+ lcoriolis                    = .FALSE.   
+/
+
+&transport_nml
+
+
+
+/
+
+&diffusion_nml
+ hdiff_order                  = 5
+ itype_vn_diffu               = 1
+ itype_t_diffu                = 2
+ hdiff_efdt_ratio             = 24.0   
+ hdiff_smag_fac               = 0.025  
+ lhdiff_vn                    = .true.
+ lhdiff_temp                  = .true.
+/
+
+&les_nml
+ isrfc_type                   = 1      
+/
+
+&extpar_nml
+ itopo                        = 0   
+
+
+
+/
+
+&output_nml
+ output_time_unit =  1                        
+ output_bounds    =  0., 10000000., 3600.     
+
+ mode             =  1                        
+ steps_per_file   = 10000
+ include_last     = .TRUE.
+ output_filename  = 'lem_out'
+ filename_format  = "<output_filename>_<levtype>_<datetime2>"
+ ml_varlist       = 'z_ifc','z_mc','u','v','w','temp','pres','rho','theta_v','pres_sfc','div','qv','shfl_s','lhfl_s','u_10m','v_10m','t_2m','rh','t_g','tke'
+ output_grid      = .TRUE.
+/
+

@@ -1,0 +1,831 @@
+<html dir="ltr" lang="en-US">
+<head>
+
+<meta charset="utf-8">
+<!--
+    This website is powered by TYPO3 - inspiring people to share!
+    TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+    TYPO3 is copyright 1998-2021 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+    Information and contribution at https://typo3.org/
+-->
+
+
+
+<title>FESSTVAL: Modelling</title>
+<meta name="generator" content="TYPO3 CMS" />
+
+
+<link rel="stylesheet" type="text/css" href="assets/css/d42b6e1bdf.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/standard.css" media="all">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <!link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="assets/js/c941a7be3f.js" type="text/javascript"></script>
+
+</head>
+
+
+
+<!-- Matomo -->
+        <script type="text/javascript">
+          var _paq = window._paq || [];
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//webstat.mpimet.mpg.de/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', 6]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <!-- End Matomo Code -->
+</head>
+<body>
+     <div class="container page">
+       <!--Header-->
+       <div class="row">
+           <div class="logo col-md-6">
+            <a class="logo_project" href="http://fesstval.de/en/" style="font-size:70px;"><img title="FESSTVAL" alt="FESSTVAL" src="assets/FESSTVAL_Banner.jpg"></a>
+             
+           </div>
+            <div class="col-md-offset-3 col-md-3 hidden-xs">
+              <div id="toolbox" class="hidden-xs"><div class="homebutton"><a  title="Startseite" href="http://fesstval.de/">    <button btn  class="btn navbar-btn"><i class="glyphicon glyphicon-home color_brand"></i></button> </a></div><div class="searchbox">
+                               <button aria-expanded="true" title="Website durchsuchen..." class=" btn navbar-btn color_brand dropdown-toggle" id="search" data-toggle="dropdown">
+                                         <i class="glyphicon glyphicon-search"></i>
+                                    </button>
+
+              <ul class="dropdown-menu showform" role="menu">
+                 <li>
+    <form name="ke_search_form" class="navbar-form" method="get" action="http://fesstval.de/?id=5088">                 <div class="form-group has-feedback ">
+                       <fieldset>
+                   <input id="pageid" type="hidden" name="id" value="5088">
+                        <input class="form-control input-sm search" id="ke_search_sword" name="tx_kesearch_pi1[sword]" placeholder="Website durchsuchen..." role="textbox" autocomplete="off" value=""  size=30  style="height:18; width:130; font-size:11px" type="text">
+
+                    
+                        </fieldset>
+               </div>
+                 <script type="text/javascript">
+                                                 
+                                                    $("#searchsite").click(function(e) {
+                                                        e.preventDefault();
+                                                        e.stopPropagation();
+                                                        // prevent the default anchor functionality
+
+                                                    });
+                                                </script>
+           </form>
+     </li>
+    </ul>
+  </div><div class="langmenu"><button class="btn navbar-btn language2015"><a href="http://ikroener.github.io/fesstval_figs/html/modellierung.html"><a href="http://ikroener.github.io/fesstval_figs/html/modellierung.html">Deutsch</a></a></button></div></div>
+            </div>
+        </div>
+        <div class="row">
+          <nav class="navbar">
+            <div class="container-fluid">
+                <!-- Titel und Schalter werden für eine bessere mobile Ansicht zusammengefasst -->
+                 <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainnavbar" aria-expanded="false">
+                <span class="sr-only">Navigation ein-/ausblenden</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+            </div>
+
+              <!-- Alle Navigationslinks, Formulare und anderer Inhalt werden hier zusammengefasst und können dann ein- und ausgeblendet werden -->
+             <div id="mainnavbar" class="collapse navbar-collapse">
+                <div class="homebutton hidden-sm hidden-md hidden-lg hidden-xl"><a  title="Startseite" href="http://fesstval.de/">    <button btn  class="btn navbar-btn"><i class="glyphicon glyphicon-home color_brand"></i></button> </a></div><div class="langmenu hidden-sm hidden-md hidden-lg hidden-xl"><button class="btn navbar-btn language2015"><a href="/"><a href="http://fesstval.de/">Deutsch</a></a></button></div><div class="clearer"><ul id="mainmenu" class="navmain nav navbar-nav navbar-left"><li class="dropdown"><a href="http://fesstval.de/en/about" aria-expanded="false" href="#" class="dropdown-toggle js-activated" data-toggle="dropdown">About<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="http://fesstval.de/en/about/who-we-are">Who we are</a></li><li><a href="http://fesstval.de/en/about/translate-to-english-veroeffentlichungen">Publications</a></li><li><a href="http://fesstval.de/en/about/conference-contributions">Conference Contributions</a></li></ul></li><li class="dropdown"><a href="http://fesstval.de/en/campaign" aria-expanded="false" href="#" class="dropdown-toggle js-activated" data-toggle="dropdown">Campaign<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="http://fesstval.de/en/campaign/concept-of-the-campaign">Concept of the campaign</a></li><li><a href="http://fesstval.de/en/campaign/test-campaign-2019">Test campaign 2019</a></li><li><a href="http://fesstval.de/en/campaign/citizen-science">Citizen Science</a></li><li><a href="http://fesstval.de/en/campaign/boundary-layer-pattern">Boundary Layer Pattern</a></li><li><a href="http://fesstval.de/en/campaign/cold-pools">Cold Pools</a></li><li><a
+                href="http://fesstval.de/en/campaign/wind-gusts">Wind
+                gusts</a></li><li><a href="http://fesstval.de/en/campaign/mol-rao">MOL-RAO</a></li><li><a href="http://fesstval.de/en/campaign/external-project-partners">External
+                project
+                partners</a></li></ul></li><li class="dropdown"><a href="http://fesstval.de/en/fessthome-2020"
+                aria-expanded="false" href="#" class="dropdown-toggle
+                js-activated" data-toggle="dropdown">FESST@home
+                2020<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="http://fesstval.de/en/fessthome-2020/fessthh-cold-pools">FESST@HH
+                - Cold
+                Pools</a></li><li><a href="http://fesstval.de/en/fessthome-2020/fesstmol">FESST@MOL</a></li><li><a href="http://fesstval.de/en/fessthome-2020/fesstbavaria">FESST@Bavaria</a></li></ul></li><li class="dropdown"><a href="http://fesstval.de/en/data"
+                aria-expanded="false" href="#" class="dropdown-toggle
+                js-activated"
+																												    data-toggle="dropdown">Quicklooks<span class="caret"></span></a>
+		      <ul class="dropdown-menu">
+			<li><a href="http://fesstval.de/en/quicklooks/overview">Overview</a></li>
+			<li><a href="http://wettermast.uni-hamburg.de/frame.php?doc=FESSTVaL.htm">Supersite Birkholz</a></li>
+			<li><a href="http://fesstval.de/en/data/translate-to-english-daten-der-mwrp">MWRP
+			    data</a></li><li><a href="https://wetterradar.uni-hamburg.de/index.php?id=4540">X-Band
+			    Radar Live</a></li>
+			<li><a href="https://lrtech.ca/events">ASSIST II</a></li>
+			<li><a href="https://messi.met.fu-berlin.de/public_devices/13819">MESSI Wettermuseum</a></li>			
+			<li><a href="http://ikroener.github.io/fesstval_figs/html/modelling.html">Modelling</a>
+            </li></ul></li><li><a href="http://fesstval.de/en/project-blog">Project blog</a></li><li><a href="http://fesstval.de/en/summer-school/translate-to-english-lecture-series-2021">Lecture Series 2021</a></li><li class="dropdown"><a href="http://fesstval.de/en/news" aria-expanded="false" href="#" class="dropdown-toggle js-activated" data-toggle="dropdown">News<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="http://fesstval.de/en/translate-to-english-news-1/presse">Presse</a></li><li><a href="http://fesstval.de/en/data/measurement-data">Publications</a></li><li><a href="http://fesstval.de/en/summer-school/cancellation">Cancellation of Summer School</a></li></ul></li></ul></div>
+                
+                </div><!-- /.navbar-collapse -->
+             </div><!-- /.container-fluid -->
+         </nav>
+        </div>
+      <div class="row">
+        <!-- Breadcrumb-->
+          <div class="col-md-12">
+            <nav class="hidden-print">
+                 
+            </nav>
+          </div>
+       </div>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+<!--
+function openPic(id, winParams) {    //
+           var url = document.getElementById(id).src;
+           var theWindow = window.open(url, id, winParams);
+           if (theWindow)    {theWindow.focus();}
+       }
+// -->
+/*]]>*/
+</script>
+   
+       
+<h1> Modelling </h1>
+
+<hr>
+This page is under contruction and the plots for ICON-SCM, ICON-CRM and ICON-LEM can change at a later stage due to adaptions in the experiment settings.
+<hr>
+
+The plots show a comparison between observations and model forecast by ICON in its different configurations. ICON-D2 is an operational run in limited area mode with 2.2 km horizontal resolution with NWP physics. ICON-Global is an operational run on the globe. </br> </br>
+
+The semi-idealistic simulations, ICON-SCM (Single Column Mode), ICON-CRM (Cloud Resolving Mode), and ICON-LEM (Large Eddy Mode) are driven by idealized 1D-forcings and run on a periodic torus grid. This has to be taken into account when comparing these two groups of simulations. While qualitative comparison is always possible between observations, realistic simulations (ICON-D2 and ICON-Global) and semi-idealistic simulations (ICON-SCM, ICON-CRM, and ICON-LEM), quantitative comparison is consistent only in each group (rows).
+
+See the bottom of this page for a detailed information of the shown data.
+
+<hr>
+
+
+<h2 align="left">Archive:</h2>
+<input type="date" id="seldate" placeholder="yyyy-mm-dd"><button id="archive">get date</button> </p>
+
+<hr>
+    
+<script>
+    $(document).ready(function() {
+        $("#archive").click(function() {
+            var basedir = 'https://raw.githubusercontent.com/ikroener/fesstval_figs/main/';
+            //var date = $('#seldate').value();
+            var date = $("#seldate").val().replace("-","").replace("-","")
+            var variables = ['#T','#rh','#ws','#clc']
+            var varnames = ['temp','rel_hum','wspeed','clc']
+            var ids = ['_img_obs','_img_scm','_img_mod1','_img_mod2','_img_crm','_img_lem']; // '_img_scm2'
+            var names = ['obs','SCM_D2','ICON_GLOBAL','ICON_D2','CRM_D2','LEM_D2']; // SCM2
+            $.each(variables,function(jndex,jalue) {
+            $.each(ids,function(index, value) {
+                var i = (index) % 6
+                var modvalue = jalue+value
+                $(modvalue).attr('src',basedir+'/archive/'+ date +'/falkenberg-'+varnames[jndex]+'-'+names[i]+'-' + date +'.png');
+            })
+            })
+            var variables2 = ['#wd','#msl','#tke','#shfl','#lhfl','#clct','#m2']
+            var ids2 = ['_img_com'];
+            var varnames2 = ['wdir','p_sfc','tke','shfl','lhfl','clct','t2m']
+            
+            $.each(variables2,function(jndex,jalue) {
+            $.each(ids2,function(index, value) {
+                var i = (index) % 6
+                var modvalue = jalue+value
+                $(modvalue).attr('src',basedir+'/archive/'+ date +'/falkenberg-'+varnames2[jndex]+'-combined-' + date +'.png');
+            })
+            })
+            
+            var variables3 = ['#T','#rh','#ws']
+            var ids3 = ['00','06','12','18'];
+            var varnames3 = ['temp','rel_hum','wspeed']
+            $.each(variables3,function(jndex,jalue) {
+            $.each(ids3,function(index, value) {
+                var i = (index) % 6
+                var modvalue = jalue+'_p' + value + '_com'
+                $(modvalue).attr('src',basedir+'/archive/'+ date +'/falkenberg-'+varnames3[jndex]+'-profile'+ value +'-' + date +'.png');
+            })
+            })
+
+            $("#iconscm").html("")
+            $("#iconcrm").html("")
+            $("#iconlem").html("")
+        });
+    });
+    
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#selskewt").click(function() {
+            var basedir = 'https://raw.githubusercontent.com/ikroener/fesstval_figs/main/';
+            //var date = $('#seldate').value();
+            var date = $("#seldate").val().replace("-","").replace("-","")
+            var variables = ['#skewt']
+            var varnames = ['skewt']
+            var ids = ['_img_obs','_img_scm','_img_mod1','_img_mod2','_img_crm','_img_lem']; // '_img_scm2'
+            var names = ['obs','SCM_D2','ICON_GLOBAL','ICON_D2','CRM_D2','LEM_D2']; // SCM2
+            var key = $("#seltime").val()
+            $.each(variables,function(jndex,jalue) {
+            $.each(ids,function(index, value) {
+                var i = (index) % 6
+                var modvalue = jalue+value
+                if ( date ) {
+                    $(modvalue).attr('src',basedir+'/archive/'+ date +'/falkenberg-'+varnames[jndex]+'_'+ key +'-'+names[i]+'-' + date +'.png');
+                    } else {
+                        $(modvalue).attr('src',basedir+'/today/'+ date +'/'+varnames[jndex]+'_'+ key +'-'+names[i]+'-' + 'today.png');
+                    }
+            })
+            })
+        });
+    });
+</script>
+
+
+
+<div>List of Variables: </div>
+<a href="#temp">Temperature</a> -- 
+<a href="#rel_hum">Relative humidity</a> -- 
+<a href="#skewt">SkewT</a> -- 
+<a href="#wspeed">Wind speed</a> -- 
+<a href="#wdir">Wind direction</a> -- 
+<a href="#p_sfc">MSLP</a> -- 
+<a href="#tke">TKE</a> --  
+<a href="#hf">Heat Fluxes</a>
+<a href="#clc">Cloud cover</a> -- 
+
+
+
+<table align="center" style="width:100%" border="0" cellpadding="0">
+<colgroup>
+    <col span="1" style="width: 24%;">
+    <col span="1" style="width: 24%;">
+    <col span="1" style="width: 24%;">
+</colgroup>
+
+
+<tr style="border-bottom:1px solid black">
+  <td colspan="100%"><p class="pull-right"> </td>
+</tr>
+
+
+<tr>
+    <td colspan="3" align="left" valign="left" id="temp"> <h2>Temperature</h2> </td>
+</tr>
+<tr>
+    <td> <h4>realistic:</h4> </td>
+</tr>
+<tr>
+<td align="left">
+    Observation: <br>
+    <a href="temp-obs-today.png" onclick="openPic('T_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_obs">
+   <img id="T_img_obs" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-obs-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-D2: <br>
+   <a href="temp-ICON_D2-today.png" onclick="openPic('T_img_mod2','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_mod2">
+   <img id="T_img_mod2" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-ICON_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-Global: <br>
+   <a href="temp-ICON_GLOBAL-today.png" onclick="openPic('T_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_mod1">
+   <img id="T_img_mod1" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-ICON_GLOBAL-today.png"
+           width="100%" alt="" /></a>
+</td>
+</tr>
+<tr>
+    <td> <h4>semi-idealistic:</h4> </td>
+</tr>
+<tr>
+<td align="left">
+    ICON-SCM: <br>
+    <a href="temp-SCM_D2-today.png" onclick="openPic('T_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_scm"><img id="T_img_scm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-SCM_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-CRM-PER: <br>
+    <a href="temp-CRM_D2-today.png" onclick="openPic('T_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_crm"><img id="T_img_crm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-CRM_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td  align="left">
+    ICON-LEM-PER : <br>
+    <a href="temp-LEM_D2-today.png" onclick="openPic('T_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="T_img_lem"><img id="T_img_lem" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-LEM_D2-today.png"
+           width="100%" alt="" /></a>
+</td>
+</tr>
+<tr style="border-bottom:1px dashed black">
+  <td colspan="100%">  </td>
+</tr>
+
+<tr>
+    <td colspan="3" align="left" valign="left" id="rel_hum">
+        <a href="temp-profile00-today.png" onclick="openPic('T_p00_com','width=600,height=450,status=0,menubar=0'); return false;" target="T_p00_com"><img id="T_p00_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-profile00-today.png"
+               width="24%" alt="" /></a>
+        <a href="temp-profile06-today.png" onclick="openPic('T_p06_com','width=600,height=450,status=0,menubar=0'); return false;" target="T_p06_com"><img id="T_p06_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-profile06-today.png"
+               width="24%" alt="" /></a>
+        <a href="temp-profile12-today.png" onclick="openPic('T_p12_com','width=600,height=450,status=0,menubar=0'); return false;" target="T_p12_com"><img id="T_p12_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-profile12-today.png"
+               width="24%" alt="" /></a>
+        <a href="temp-profile18-today.png" onclick="openPic('T_p18_com','width=600,height=450,status=0,menubar=0'); return false;" target="T_p18_com"><img id="T_p18_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/temp-profile18-today.png"
+               width="25%" alt="" /></a>
+    </td>
+</tr>
+
+<tr style="border-bottom:1px dashed black">
+  <td colspan="100%">  </td>
+</tr>
+
+<td colspan="3" align="center" valign="center"><a href="t2m-combined-today.png" onclick="openPic('m2_img_com','width=1200,height=450,status=0,menubar=0'); return false;" target="m2_img_com">
+  <img id="m2_img_com" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/t2m-combined-today.png" width="33%" /></a>
+</td>
+
+<tr style="border-bottom:1px solid black">
+  <td colspan="100%"><p class="pull-right"><a href="#">Back to top</a></p>   </td>
+</tr>
+
+
+<tr>
+    <td colspan="3" align="left" valign="left" id="rel_hum"> <h2>relative Humidity</h2></td>
+</tr>
+<tr>
+    <td> <h4>realistic:</h4> </td>
+</tr>
+<tr>
+<td align="left">
+    Observation: <br>
+    <a href="rel_hum-obs-today.png" onclick="openPic('rh_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_obs">
+   <img id="rh_img_obs"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-obs-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-D2: <br>
+   <a href="rel_hum-ICON_D2-today.png" onclick="openPic('rh_img_mod2','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_mod2">
+   <img id="rh_img_mod2" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-ICON_D2-today.png"
+           width="100%" alt="" />
+</td><td align="left">
+    ICON-Global: <br>
+   <a href="rel_hum-ICON_GLOBAL-today.png" onclick="openPic('rh_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_mod1">
+   <img id="rh_img_mod1" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-ICON_GLOBAL-today.png"
+           width="100%" alt="" /></a>
+</td>
+</tr>
+<tr>
+    <td> <h4>semi-idealistic:</h4> </td>
+</tr>
+<tr>
+<td align="left">
+    ICON-SCM: <br>
+    <a href="rel_hum-SCM_D2-today.png" onclick="openPic('rh_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_scm"><img id="rh_img_scm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-SCM_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-CRM-PER: <br>
+    <a href="rel_hum-CRM_D2-today.png" onclick="openPic('rh_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_crm"><img id="rh_img_crm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-CRM_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-LEM-PER: <br>
+    <a href="rel_hum-LEM_D2-today.png" onclick="openPic('rh_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="rh_img_lem"><img id="rh_img_lem" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-LEM_D2-today.png"
+           width="100%" alt="" /></a>
+</td>
+</td>
+</tr>
+
+</td>
+</tr>
+<tr style="border-bottom:1px dashed black">
+  <td colspan="100%">  </td>
+</tr>
+
+<tr>
+    <td colspan="3" align="left" valign="left" id="rel_hum">
+        <a href="rel_hum-profile00-today.png" onclick="openPic('rh_p00_com','width=600,height=450,status=0,menubar=0'); return false;" target="rh_p00_com"><img id="rh_p00_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-profile00-today.png"
+               width="24%" alt="" /></a>
+        <a href="rel_hum-profile06-today.png" onclick="openPic('rh_p06_com','width=600,height=450,status=0,menubar=0'); return false;" target="rh_p06_com"><img id="rh_p06_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-profile06-today.png"
+               width="24%" alt="" /></a>
+        <a href="rel_hum-profile12-today.png" onclick="openPic('rh_p12_com','width=600,height=450,status=0,menubar=0'); return false;" target="rh_p12_com"><img id="rh_p12_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-profile12-today.png"
+               width="24%" alt="" /></a>
+        <a href="rel_hum-profile18-today.png" onclick="openPic('rh_p18_com','width=600,height=450,status=0,menubar=0'); return false;" target="rh_p18_com"><img id="rh_p18_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/rel_hum-profile18-today.png"
+               width="25%" alt="" /></a>
+    </td>
+</tr>
+
+
+<tr style="border-bottom:1px solid black">
+  <td colspan="100%"><p class="pull-right"><a href="#">Back to top</a></p>   </td>
+</tr>
+
+
+<tr><td colspan="2" align="left" valign="left" id="skewt"> <h2>SkewT</h2> </td></tr>
+<tr><td>
+        <select id="seltime" name="00">
+          <option value="00">00 UTC</option>
+          <option value="06">06 UTC</option>
+          <option value="12">12 UTC</option>
+          <option value="18">18 UTC</option>
+        </select><button id="selskewt">Select</button>
+</td>
+</tr>
+<tr>
+    <td> <h4>realistisch:</h4> </td>
+</tr>
+<tr>
+<td align="left">
+    realisitc: <br>
+    <a href="skewt-obs-today.png" onclick="openPic('skew_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="skewt_img_obs">
+   <img id="skewt_img_obs" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/skewt_12-obs-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-D2: <br>
+   <a href="skewt-ICON_D2-today.png" onclick="openPic('skewt_img_mod2','width=600,height=450,status=0,menubar=0'); return false;" target="skewt_img_mod2">
+   <img id="skewt_img_mod2" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/skewt_12-ICON_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-Global: <br>
+   <a href="skwet-ICON_GLOBAL-today.png" onclick="openPic('skewt_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="skewt_img_mod1">
+   <img id="skewt_img_mod1" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/skewt_12-ICON_GLOBAL-today.png"
+           width="100%" alt="" /></a>
+</td>
+</tr>
+<tr>
+    <td> <h4>semi-idealistic:</h4> </td>
+</tr>
+<tr>
+<td align="left">
+    ICON-SCM: <br>
+    <a href="skewt-SCM_D2-today.png" onclick="openPic('skewt_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="skewt_img_scm"><img id="skewt_img_scm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/skewt_12-SCM_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-CRM-PER: <br>
+    <a href="skewt-CRM_D2-today.png" onclick="openPic('skewt_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="skewt_img_crm"><img id="skewt_img_crm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/skewt_12-CRM_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td  align="left">
+    ICON-LEM-PER : <br>
+    <a href="skewt-LEM_D2-today.png" onclick="openPic('skewt_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="skewt_img_lem"><img id="skewt_img_lem" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/skewt_12-LEM_D2-today.png"
+           width="100%" alt="" /></a>
+</td>
+</tr>
+<tr style="border-bottom:1px dashed black">
+  <td colspan="100%">  </td>
+</tr>
+
+
+
+
+<tr>
+    <td colspan="3" align="left" valign="left" id="wspeed"> <h2>Wind Speed</h2> </td>
+</tr>
+<tr>
+    <td> <h4>realistic:</h4> </td>
+</tr>
+<tr>
+<td align="left">
+    Observation: <br>
+    <a href="wspeed-obs-today.png" onclick="openPic('ws_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="ws_img_obs">
+   <img id="ws_img_obs"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-obs-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-D2: <br>
+   <a href="wspeed-ICON_D2-today.png" onclick="openPic('ws_img_mod2','width=600,height=450,status=0,menubar=0'); return false;" target="thePicture">
+   <img id="ws_img_mod2" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-ICON_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-Global: <br>
+   <a href="wspeed-ICON_GLOBAL-today.png" onclick="openPic('ws_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="thePicture">
+   <img id="ws_img_mod1" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-ICON_GLOBAL-today.png"
+           width="100%" alt="" /></a>
+</td>
+</tr>
+<tr>
+    <td> <h4>semi-idealistic:</h4> </td>
+</tr>
+<tr>
+<td  align="left">
+    ICON-SCM: <br>
+    <a href="wspeed-SCM_D2-today.png" onclick="openPic('ws_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="ws_img_scm"><img id="ws_img_scm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-SCM_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-CRM-PER: <br>
+    <a href="wspeed-CRM_D2-today.png" onclick="openPic('ws_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="ws_img_crm"><img id="ws_img_crm" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-CRM_D2-today.png"
+           width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-LEM-PER: <br>
+    <a href="wspeed-LEM_D2-today.png" onclick="openPic('ws_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="ws_img_lem"><img id="ws_img_lem" class="image-embed-item"
+           src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-LEM_D2-today.png"
+           width="100%" alt="" /></a>
+</a></figure>
+</td>
+</tr>
+
+</td>
+</tr>
+<tr style="border-bottom:1px dashed black">
+  <td colspan="100%">  </td>
+</tr>
+
+<tr>
+    <td colspan="3" align="left" valign="left" id="wspeed">
+        <a href="wspeed-profile00-today.png" onclick="openPic('ws_p00_com','width=600,height=450,status=0,menubar=0'); return false;" target="ws_p00_com"><img id="ws_p00_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-profile00-today.png"
+               width="24%" alt="" /></a>
+        <a href="wspeed-profile06-today.png" onclick="openPic('ws_p06_com','width=600,height=450,status=0,menubar=0'); return false;" target="ws_p06_com"><img id="ws_p06_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-profile06-today.png"
+               width="24%" alt="" /></a>
+        <a href="wspeed-profile12-today.png" onclick="openPic('ws_p12_com','width=600,height=450,status=0,menubar=0'); return false;" target="ws_p12_com"><img id="ws_p12_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-profile12-today.png"
+               width="24%" alt="" /></a>
+        <a href="wspeed-profile18-today.png" onclick="openPic('ws_p18_com','width=600,height=450,status=0,menubar=0'); return false;" target="ws_p18_com"><img id="ws_p18_com" class="image-embed-item"
+               src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wspeed-profile18-today.png"
+               width="25%" alt="" /></a>
+    </td>
+</tr>
+
+<tr style="border-bottom:1px solid black">
+  <td colspan="100%"><p class="pull-right"><a href="#">Back to top</a></p>   </td>
+</tr>
+
+<tr>
+ <td colspan="3" align="left" valign="left" id="wdirection"> <h2>Wind Direction</h2> </td>
+</tr>
+<td colspan="3" align="center" valign="center">
+    <a href="wdir-combined-today.png" onclick="openPic('wd_img_com','width=1200,height=450,status=0,menubar=0'); return false;"
+        target="wd_img_com" class="image-embeded-item"><img id="wd_img_com" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/wdir-combined-today.png" width="66%" /></a>
+</td>
+
+<tr style="border-bottom:1px solid black">
+  <td colspan="100%"><p class="pull-right"><a href="#">Back to top</a></p>   </td>
+</tr>
+
+<tr>
+ <td colspan="3" align="left" valign="left" id="p_sfc"> <h2>Mean Sea Level Pressure</h2></td>
+</tr>
+<td colspan="3" align="center" valign="center">
+<a href="p_sfc-combined-today.png" onclick="openPic('msl_img_com','width=600,height=450,status=0,menubar=0'); return false;"
+    target="msl_img_com" class="image-embeded-item"><img id="msl_img_com" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/p_sfc-combined-today.png" width="33%" /> </a>
+</td>
+
+<tr style="border-bottom:1px solid black">
+  <td colspan="100%"><p class="pull-right"><a href="#">Back to top</a></p>   </td>
+</tr>
+
+<tr>
+ <td colspan="3" align="left" valign="left" id="tke"> <h2>Turbulent kinetic energy</h2></td>
+</tr>
+<td colspan="3" align="center" valign="center">
+<a href="tke-combined-today.png" onclick="openPic('tke_img_com','width=600,height=450,status=0,menubar=0'); return false;"
+    target="tke_img_com" class="image-embeded-item">
+  <img id="tke_img_com" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/tke-combined-today.png" width="33%" /> </a>
+</td>
+
+<tr style="border-bottom:1px solid black">
+  <td colspan="100%"><p class="pull-right"><a href="#">Back to top</a></p>   </td>
+</tr>
+
+<tr>
+ <td colspan="3" align="left" valign="left" id="hf"> <h2>Surface heat fluxes</h2></td>
+</tr>
+<td colspan="3" align="center" valign="center">
+    <a href="shfl-combined-today.png" onclick="openPic('shfl_img_com','width=600,height=450,status=0,menubar=0'); return false;"
+        target="shfl_img_com" class="image-embeded-item"><img id="shfl_img_com" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/shfl-combined-today.png" width="33%" /> </a>
+    <a href="lhfl-combined-today.png" onclick="openPic('lhfl_img_com','width=600,height=450,status=1,menubar=1'); return false;"
+            target="lhfl_img_com" class="image-embeded-item"><img id="lhfl_img_com" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/lhfl-combined-today.png" width="33%" /></a>
+</td>
+
+<tr style="border-bottom:1px solid black">
+  <td colspan="100%"><p class="pull-right"><a href="#">Back to top</a></p>   </td>
+</tr>
+
+<tr><td colspan="3" align="left" valign="left" id="clc"> <h2>Cloud Cover</h2></td></tr>
+
+<td colspan="3" align="center" valign="center">
+    <a href="clct-combined-today.png" onclick="openPic('clct_img_com','width=600,height=450,status=0,menubar=0'); return false;"
+        target="clct_img_com" class="image-embeded-item"><img id="clct_img_com" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clct-combined-today.png" width="33%" /> </a>
+</td>
+
+
+<tr style="border-bottom:1px dashed black">
+  <td colspan="100%"><p class="pull-right"><a href="#">Back to top</a></p>   </td>
+</tr>
+
+<tr><td> <h4>realistic:</h4> </td></tr>
+<tr><td align="left">
+    Observation: <br>
+    <a href="clc-obs-today.png" onclick="openPic('clc_img_obs','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_obs" ><img id="clc_img_obs" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clc-obs-today.png" width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-D2: <br>
+   <a href="clc-ICON_D2-today.png" onclick="openPic('clc_img_mod2','width=600,height=450,status=0,menubar=0');return false;" target="clc_img_mod2"><img id="clc_img_mod2" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clc-ICON_D2-today.png" width="100%" alt="" />
+</td><td align="left">
+    ICON-Global: <br>
+    <a href="clc-ICON_GLOBAL-today.png" onclick="openPic('clc_img_mod1','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_mod1"> <img id="clc_img_mod1" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clc-ICON_GLOBAL-today.png" width="100%" alt="" /></a>
+</td>
+</tr>
+<tr><td> <h4>semi-idealistic:</h4> </td></tr>
+<tr>
+<td align="left">
+    ICON-SCM: <br>
+    <a href="clc-SCM_D2-today.png" onclick="openPic('clc_img_scm','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_scm"><img id="clc_img_scm" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clc-SCM_D2-today.png" width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-CRM-PER: <br>
+    <a href="clc-CRM_D2-today.png" onclick="openPic('clc_img_crm','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_crm"><img id="clc_img_crm" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clc-CRM_D2-today.png" width="100%" alt="" /></a>
+</td><td align="left">
+    ICON-LEM-PER: <br>
+    <a href="clc-LEM_D2-today.png" onclick="openPic('clc_img_lem','width=600,height=450,status=0,menubar=0'); return false;" target="clc_img_lem"><img id="clc_img_lem" class="image-embed-item" src="https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/clc-LEM_D2-today.png" width="100%" alt="" /></a>
+</td></td></tr>
+</table>
+
+<hr>
+
+
+ICON configurations:</br>
+ICON-Global : NWP physics, activated dynamics, global grid </br>
+ICON-D2: NWP physics, activated dynamics, limited area grid with 2.2km horizontal resolution </br>
+ICON-SCM: NWP physics, de-activated dynamics, minimal torus grid (single column) </br>
+ICON-CRM-PER: NWP physics, activated dynamics, periodic torus grid (100x100 cells) with 2.5 km horizontal resolution </br>
+ICON-LEM-PER: LEM physics, activated dynamics, periodic torus grid (100x100 cells) with 100 m horizontal resolution </br>
+
+</br>
+Search within the config files for namelist entries using clear text or the
+drop down menu: (In some browser the history function will lead to a short
+freeze until the data is loaded)</br>
+
+<input type="text" id="namelistkey" list="listkeys"><button id="selkey">Current</button><button id="selhist">History</button>
+    <datalist id="listkeys">
+        <option value='lcoriolis'>
+        <option value='ldynamics'>
+        <option value='is_geowind'>
+        <option value='nh_test_name'>
+    </datalist>
+
+<hr>
+</br>
+    
+<table id="histtab" align="center" style="width:100%" border="0" cellpadding="0">
+<colgroup>
+    <col span="1" style="width: 10%;">
+    <col span="1" style="width: 24%;">
+    <col span="1" style="width: 24%;">
+    <col span="1" style="width: 24%;">
+</colgroup>
+<tr style="border-bottom:1px solid black">
+  <td colspan="100%"><p class="pull-right"> </td>
+</tr>
+</table>
+
+
+<script>
+        $("#selkey").click(function() {
+            $("#histtab tr").remove();
+            $('#histtab > tbody:last-child').append('<tr><td>Date</td><td> ICON-SCM </td><td> ICON-CRM-PER </td><td> ICON-LEM-PER </td></tr>')
+            var date = $("#seldate").val().replace("-","").replace("-","")
+            if ( date ) {
+                var url1 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/archive/"+date+"/NAMELIST_SCM_dt1.0_" + date + "00"
+                var url2 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/archive/"+date+"/NAMELIST_CRM_dt1.0_" + date + "00"
+                var url3 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/archive/"+date+"/NAMELIST_LEM_dt1.0_" + date + "00"
+                } else {
+                var url1 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_SCM_dt1.0_today"
+                var url2 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_CRM_dt1.0_today"
+                var url3 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/today/NAMELIST_LEM_dt1.0_today"
+                date = "current"
+            }
+            
+            var tmp1 = "NULL"
+            var tmp2 = "NULL"
+            var tmp3 = "NULL"
+            $.ajax({
+                url : url1,
+                async: false,
+                dataType: "text",
+                success : function (data) {
+                    const regex1 = (element) => element.includes($("#namelistkey").val())
+                    var dataarray = data.split('\n')
+                    var i = dataarray.findIndex(regex1);
+                    tmp1 = dataarray[i]
+                }
+            });
+            $.ajax({
+                url : url2,
+                async: false,
+                dataType: "text",
+                success : function (data) {
+                    const regex1 = (element) => element.includes($("#namelistkey").val())
+                    var dataarray = data.split('\n')
+                    var i = dataarray.findIndex(regex1);
+                    tmp2 = dataarray[i]
+                }
+            });
+            $.ajax({
+                url : url3,
+                async: false,
+                dataType: "text",
+                success : function (data) {
+                    const regex1 = (element) => element.includes($("#namelistkey").val())
+                    var dataarray = data.split('\n')
+                    var i = dataarray.findIndex(regex1);
+                    tmp3 = dataarray[i]
+                }
+            });
+            $('#histtab > tbody:last-child').append('<tr><td>' + date + '</td><td>'+tmp1+'</td><td>'+tmp2+'</td><td>'+tmp3+'</td></tr>')});
+
+    $("#selhist").click(function() {
+
+    $("#histtab tr").remove();
+    $('#histtab > tbody:last-child').append('<tr><td>Date</td><td> ICON-SCM </td><td> ICON-CRM-PER </td><td> ICON-LEM-PER </td></tr>')
+    $.ajax({
+        url: "https://api.github.com/repos/ikroener/fesstval_figs/contents/archive",
+        success: function (datalist) {
+            $(datalist).each(function(k) {
+                var date = datalist[k]['name']
+                var url1 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/archive/" + date+ "/NAMELIST_SCM_dt1.0_" + date + '00'
+                var url2 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/archive/" + date+ "/NAMELIST_CRM_dt1.0_" + date + '00'
+                var url3 = "https://raw.githubusercontent.com/ikroener/fesstval_figs/main/archive/" + date+ "/NAMELIST_LEM_dt1.0_" + date + '00'
+                var tmp1 = "NULL"
+                var tmp2 = "NULL"
+                var tmp3 = "NULL"
+                $.ajax({
+                    url : url1,
+                    async: false,
+                    dataType: "text",
+                    success : function (data) {
+                        const regex1 = (element) => element.includes($("#namelistkey").val())
+                        var dataarray = data.split('\n')
+                        var i = dataarray.findIndex(regex1);
+                        tmp1 = dataarray[i]
+                    }
+                });
+                $.ajax({
+                    url : url2,
+                    async: false,
+                    dataType: "text",
+                    success : function (data) {
+                        const regex1 = (element) => element.includes($("#namelistkey").val())
+                        var dataarray = data.split('\n')
+                        var i = dataarray.findIndex(regex1);
+                        tmp2 = dataarray[i]
+                    }
+                });
+                $.ajax({
+                    url : url3,
+                    async: false,
+                    dataType: "text",
+                    success : function (data) {
+                        const regex1 = (element) => element.includes($("#namelistkey").val())
+                        var dataarray = data.split('\n')
+                        var i = dataarray.findIndex(regex1);
+                        tmp3 = dataarray[i]
+                    }
+                });
+                $('#histtab > tbody:last-child').append('<tr><td>' + date + '</td><td>'+tmp1+'</td><td>'+tmp2+'</td><td>'+tmp3+'</td></tr>')})}
+    });
+    });
+</script>
+
+
+</br>
+Observations: </br>
+Observational products are taken from the Falkenberg site of the Meteorologisches Observatorium Lindenberg (MOL). For the vertical profiles (line plots) the operational radiosonde measurements of MOL are used.
+
+
+<hr>
+
+All forcing data to drive the semi-idealistic simulations is available via the FESSTVaL ftp-server (ftp-projects.cen.uni-hamburg.de)
+
+<hr>
+
+
+</footer>
+<div id="sponsor">
+   
+<div id="c21243" class="frame frame-default frame-type-textmedia frame-layout-0"><div class="ce-textpic ce-left ce-above"><div class="ce-gallery" data-ce-columns="1" data-ce-images="1"><div class="ce-row"><div class="ce-column"><figure class="image"><a href="https://www.hans-ertel-zentrum.de/"><img class="image-embed-item" src="assets/csm_HErZ_neuneu_da8d00c9bf.jpg" width="200" height="64" alt="" /></a></figure></div></div></div></div></div>
+</div>
+ <p class="pull-right"><a href="#">Back to top</a></p>
+</div><!-- /.container -->
+    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.bootstrap-dropdown-hover.min.js" type="text/javascript"></script>
+</body>
+</html>
